@@ -58,6 +58,13 @@ This is the difference between looking at revenue and understanding **system hea
 **What to do:** Bundle PIX into "CloudWalk Instant" suite leveraging Stratus blockchain. Target weekend PF merchant onboarding with special incentives. Transform PIX from commodity to differentiated offering.
 
 ---
+### 4. Installments Revenue Optimization (New)
+Installments drive higher average ticket and meaningful TPV in LINK/POS. Optimize pricing and offer AI recommendations; monitor adoption and success rate by product/entity.
+
+### 5. Price Tier Segmentation Opportunities (New)
+TPV concentrates in top tiers with distinct product mixes. Define tier-specific bundles and migration paths; track upgrade rates and LTV by tier.
+
+---
 
 ## Recommendations (Aligned with CloudWalk Strategy)
 
@@ -66,6 +73,8 @@ This is the difference between looking at revenue and understanding **system hea
 | 🚀 #1 | Launch "InfinitePay Solo" + Weekend/Off-Hours Campaigns | Gig economy capture + Timing advantage | Accelerate PF growth beyond +2.3pp/quarter | 30-60 days |
 | 🔗 #2 | Launch "CloudWalk Instant" Suite | PIX catch-up + Product ecosystem | Premium tier revenue + merchant retention | 60-90 days |
 | 💰 #3 | Anticipation → Working Capital Platform | Revenue transformation + Lending | 4.5x revenue multiplier opportunity | 60-180 days |
+| 📊 #4 | Installments Optimization | Revenue optimization + Product ecosystem | +15–20% TPV in targeted products (est.) | 60–90 days |
+| 💵 #5 | Price Tier Segmentation Strategy | Customer segmentation + Revenue growth | +18–25% revenue via tier upgrades (est.) | 60–90 days |
 
 **Why This Order:**
 - **#1-3 are pure strategic growth** (capture markets, differentiate technology, expand ecosystem)
@@ -200,5 +209,5 @@ Fix the foundation, then build higher.
 **Want to chat?** I'm happy to walk through any of these findings in detail.
 
 **Rodrigo**  
-October 2025
+Last Updated: October 30, 2025 | Version: 3.0 - Restructured for Input-Processing-Output clarity
 

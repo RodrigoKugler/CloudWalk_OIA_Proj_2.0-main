@@ -439,6 +439,37 @@ This exact pattern was discovered in a 2-day operational snapshot during Q1 2025
 
 ---
 
+## 📊 Segment-Specific Alert Packs (PF, PJ, Product, Tier)
+
+- PF vs PJ performance deltas (attach to daily report)
+- Product-specific underperformance/overperformance alerts
+- Price tier drift alerts (merchant behavior deviates from historical tier profile)
+- Installment behavior alerts (share swings, unusually high parcel counts)
+
+Alert examples:
+- "PF weekend TPV +18% vs baseline; attach rate to Tap to Pay +6pp"
+- "Tier Intermediary → Aggressive migration candidates detected (42 merchants)"
+
+---
+
+## 💵 Cost–Benefit Sensitivity (Instant + Bot)
+
+Scenarios (monthly):
+- Conservative: +0.5% TPV lift captured via faster detection; 30% alert action rate
+- Expected: +1.0% TPV lift; 50% action rate; +8% churn reduction for Instant users
+- Optimistic: +1.5% TPV lift; 65% action rate; +12% churn reduction
+
+Break-even: Achieved if combined lift ≥ 0.2% TPV at current margin assumptions.
+
+---
+
+## 🧩 Resourcing & SLA Tiers
+
+- Team: 1 PM, 1 DS/ML, 1 DE, 1 BE, 1 FE, 1 QA, 1 DevOps
+- SLAs (Premium Instant): API/webhook < 500ms p95, uptime 99.95%, incident comms < 15 min
+- Data contracts: schema versioning, regression tests on KPIs
+
+
 ## 💡 Example Bot Interactions
 
 ### Interactive Slack Commands:
@@ -630,8 +661,8 @@ The bot becomes an essential member of the operations team, working 24/7 to ensu
 ---
 
 **Document Author:** Rodrigo Toledo
-**Last Updated:** October 16 2025  
-**Version:** 1.0
+**Last Updated:** October 30, 2025  
+**Version:** 3.0 - Restructured for Input-Processing-Output clarity
 
 
 

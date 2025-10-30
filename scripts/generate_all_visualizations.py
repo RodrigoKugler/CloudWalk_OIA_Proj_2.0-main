@@ -614,6 +614,165 @@ fig13.update_layout(
 save_plotly_fig(fig13, 'peak_hours.png', width=1200, height=500)
 
 # ============================================================================
+# VISUALIZATION 14: INSTALLMENTS ANALYSIS (INSIGHTS Finding #4)
+# ============================================================================
+
+print("🎨 Generating: Installments Analysis (if data available)...")
+has_installments = 'installments' in df_main.columns
+if has_installments:
+    try:
+        # Normalize installments column
+        df_main['installments'] = pd.to_numeric(df_main['installments'], errors='coerce').fillna(1).astype(int)
+
+        # Figure A: Distribution of installment counts (weighted by TPV)
+        inst_dist = df_main.groupby('installments')['amount_transacted'].sum().reset_index()
+        inst_dist = inst_dist.sort_values('installments')
+        fig14a = go.Figure()
+        fig14a.add_trace(go.Bar(
+            x=inst_dist['installments'],
+            y=inst_dist['amount_transacted'],
+            text=inst_dist['amount_transacted'].apply(lambda x: f"R$ {x/1e9:.2f}B"),
+            textposition='outside',
+            marker_color='#636EFA'
+        ))
+        fig14a.update_layout(
+            title='Installments Distribution by TPV',
+            xaxis_title='Installments (number of parcels)',
+            yaxis_title='Total Payment Volume (R$)',
+            height=500,
+            font=dict(size=12)
+        )
+        save_plotly_fig(fig14a, 'installments_distribution.png', width=1000, height=500)
+
+        # Figure B: Installments usage rate by product
+        df_main['is_installment'] = (df_main['installments'] > 1).astype(int)
+        inst_by_product = df_main.groupby('product').agg(
+            tpv=('amount_transacted', 'sum'),
+            inst_tpv=('amount_transacted', lambda s: (df_main.loc[s.index, 'is_installment'] * s).sum()),
+            tx=('quantity_transactions', 'sum'),
+            inst_tx=('quantity_transactions', lambda s: (df_main.loc[s.index, 'is_installment'] * s).sum())
+        ).reset_index()
+        # calculate shares
+        inst_by_product['installment_tpv_share_%'] = (inst_by_product['inst_tpv'] / inst_by_product['tpv'] * 100).round(1)
+        fig14b = px.bar(
+            inst_by_product.sort_values('installment_tpv_share_%', ascending=False),
+            x='product',
+            y='installment_tpv_share_%',
+            title='Installment TPV Share by Product',
+            labels={'installment_tpv_share_%': 'Installment Share of TPV (%)', 'product': 'Product'},
+            color='installment_tpv_share_%',
+            color_continuous_scale='Blues'
+        )
+        fig14b.update_traces(texttemplate='%{y:.1f}%', textposition='outside')
+        fig14b.update_layout(height=500, showlegend=False, font=dict(size=12))
+        save_plotly_fig(fig14b, 'installments_by_product.png', width=1000, height=500)
+
+        # Composite canvas not necessary; main figure for INSIGHTS
+        print("✅ Installments visuals generated.")
+    except Exception as e:
+        print(f"❌ Skipped Installments visuals: {e}")
+else:
+    print("ℹ️ 'installments' column not found. Creating placeholders for Installments visuals...")
+    # Placeholder A
+    fig14a_ph = go.Figure()
+    fig14a_ph.add_annotation(
+        x=0.5, y=0.5, xref='paper', yref='paper', showarrow=False,
+        text="Installments visuals unavailable\nReason: 'installments' column not found",
+        font=dict(size=16)
+    )
+    fig14a_ph.update_layout(height=400, width=800, title='Installments Distribution (Placeholder)')
+    save_plotly_fig(fig14a_ph, 'installments_distribution.png', width=1000, height=500)
+
+    # Placeholder B
+    fig14b_ph = go.Figure()
+    fig14b_ph.add_annotation(
+        x=0.5, y=0.5, xref='paper', yref='paper', showarrow=False,
+        text="Installments by Product unavailable\nReason: 'installments' column not found",
+        font=dict(size=16)
+    )
+    fig14b_ph.update_layout(height=400, width=800, title='Installments by Product (Placeholder)')
+    save_plotly_fig(fig14b_ph, 'installments_by_product.png', width=1000, height=500)
+
+# ============================================================================
+# VISUALIZATION 15: PRICE TIER ANALYSIS (INSIGHTS Finding #5)
+# ============================================================================
+
+print("🎨 Generating: Price Tier Analysis (if data available)...")
+has_tier = 'price_tier' in df_main.columns or 'price_tier'.upper() in df_main.columns
+price_tier_col = 'price_tier' if 'price_tier' in df_main.columns else ('PRICE_TIER' if 'PRICE_TIER' in df_main.columns else None)
+if price_tier_col is not None:
+    try:
+        # Clean tier labels
+        tier_map = {
+            'normal': 'Normal', 'intermediary': 'Intermediary', 'aggressive': 'Aggressive', 'domination': 'Domination'
+        }
+        tiers = df_main[price_tier_col].astype(str).str.lower().map(lambda x: tier_map.get(x, x.title()))
+        df_tier = df_main.copy()
+        df_tier['tier_clean'] = tiers
+
+        # Figure A: TPV by price tier
+        tpv_by_tier = df_tier.groupby('tier_clean')['amount_transacted'].sum().reset_index()
+        tpv_by_tier = tpv_by_tier.sort_values('amount_transacted', ascending=False)
+        fig15a = px.bar(
+            tpv_by_tier,
+            x='tier_clean',
+            y='amount_transacted',
+            title='TPV by Price Tier',
+            labels={'tier_clean': 'Price Tier', 'amount_transacted': 'Total Payment Volume (R$)'},
+            color='amount_transacted',
+            color_continuous_scale='Viridis'
+        )
+        fig15a.update_traces(text=tpv_by_tier['amount_transacted'].apply(lambda x: f"R$ {x/1e9:.2f}B"), textposition='outside')
+        fig15a.update_layout(height=500, showlegend=False, font=dict(size=12))
+        save_plotly_fig(fig15a, 'tpv_by_price_tier.png', width=1000, height=500)
+
+        # Figure B: Product usage by tier (heatmap by TPV)
+        heat = df_tier.groupby(['tier_clean', 'product'])['amount_transacted'].sum().reset_index()
+        pivot = heat.pivot_table(index='tier_clean', columns='product', values='amount_transacted', fill_value=0)
+        # Normalize by row for readability
+        norm = pivot.div(pivot.sum(axis=1), axis=0).round(3)
+        fig15b = go.Figure(data=go.Heatmap(
+            z=norm.values,
+            x=norm.columns.astype(str),
+            y=norm.index.astype(str),
+            colorscale='Blues',
+            hovertemplate='Tier=%{y}<br>Product=%{x}<br>Share=%{z:.0%}<extra></extra>'
+        ))
+        fig15b.update_layout(
+            title='Product Usage by Price Tier (share of TPV)',
+            xaxis_title='Product',
+            yaxis_title='Price Tier',
+            height=500,
+            font=dict(size=12)
+        )
+        save_plotly_fig(fig15b, 'product_usage_by_tier_heatmap.png', width=1000, height=500)
+
+        print("✅ Price tier visuals generated.")
+    except Exception as e:
+        print(f"❌ Skipped Price Tier visuals: {e}")
+else:
+    print("ℹ️ 'price_tier' column not found. Creating placeholders for Price Tier visuals...")
+    # Placeholder A
+    fig15a_ph = go.Figure()
+    fig15a_ph.add_annotation(
+        x=0.5, y=0.5, xref='paper', yref='paper', showarrow=False,
+        text="Price Tier visuals unavailable\nReason: 'price_tier' column not found",
+        font=dict(size=16)
+    )
+    fig15a_ph.update_layout(height=400, width=800, title='TPV by Price Tier (Placeholder)')
+    save_plotly_fig(fig15a_ph, 'tpv_by_price_tier.png', width=1000, height=500)
+
+    # Placeholder B
+    fig15b_ph = go.Figure()
+    fig15b_ph.add_annotation(
+        x=0.5, y=0.5, xref='paper', yref='paper', showarrow=False,
+        text="Product Usage by Tier unavailable\nReason: 'price_tier' column not found",
+        font=dict(size=16)
+    )
+    fig15b_ph.update_layout(height=400, width=800, title='Product Usage by Tier (Placeholder)')
+    save_plotly_fig(fig15b_ph, 'product_usage_by_tier_heatmap.png', width=1000, height=500)
+
+# ============================================================================
 # SUMMARY REPORT
 # ============================================================================
 
@@ -640,6 +799,9 @@ print("  ✅ product_concentration_treemap.png (Finding #3: Product Concentratio
 print("  ✅ anticipation_timeline.png (Finding #3: Anticipation Evolution)")
 print("  ✅ 3am_anomaly.png (BOT_PROPOSAL: Real-time Monitoring Use Case)")
 print(f"  ✅ peak_hours.png (Finding #1: Weekend/Off-Hours Timing Advantage) [CORRECTED: {peak_hours_pct:.1f}%]")
+print("  ⛳ Optional (data-dependent):")
+print("    ▹ installments_distribution.png, installments_by_product.png (Finding #4)")
+print("    ▹ tpv_by_price_tier.png, product_usage_by_tier_heatmap.png (Finding #5)")
 print()
 print("🔍 QA VALIDATION:")
 print(f"  ✅ All CloudWalk data calculations verified")
