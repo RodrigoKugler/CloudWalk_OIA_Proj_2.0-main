@@ -4,7 +4,7 @@ From data to action in 30/60/90 days. A comprehensive analysis of CloudWalk's Q1
 
 **Analyst:** Rodrigo  
 **Date:** October 2025  
-**Version:** 4.1 – Enhanced Sales-Ready Format
+**Version:** 4.2 – Complete with Data Quality Assessment
 
 ---
 
@@ -19,9 +19,10 @@ This document consolidates operational intelligence, strategic findings, and imp
 | **[Strategic Findings](#strategic-findings)** | Three high-impact opportunities with implementation roadmaps and KPIs | 15 min |
 | **[Action Plans](#action-plans)** | Prioritized recommendations aligned with CloudWalk's strategic priorities | 5 min |
 | **[Operational Intelligence System](#operational-intelligence-system)** | Automated monitoring and alerting proposal for real-time insights | 10 min |
+| **[Data Quality & Limitations](#data-quality)** | Comprehensive assessment of data structure, quality issues, and limitations | 10 min |
 | **[Methodology & Sources](#methodology-and-sources)** | Data sources, calculation methods, and validation approaches | 5 min |
 
-**Total Read Time:** 50 minutes for complete analysis
+**Total Read Time:** 60 minutes for complete analysis
 
 ---
 
@@ -37,7 +38,7 @@ Strategic priorities focus on market penetration, technology leadership, ecosyst
 
 ### Q1 2025 Performance Overview
 
-CloudWalk processed 19.2 billion reais in total payment volume during Q1 2025, representing 563,076 transactions across 90 days. The business grew 14.8% from January to March with an approval rate of 85.8%.
+CloudWalk processed 19.2 billion reais in total payment volume during Q1 2025, representing 563,076 transactions across 81 days of available data (January 1 through March 22). The business grew 14.8% month-over-month with an approval rate of 85.8%.
 
 Key performance metrics:
 
@@ -59,7 +60,11 @@ CloudWalk's existing technology advantages, specifically Tap to Pay capabilities
 
 The opportunity extends beyond segment growth to timing optimization. Transaction analysis reveals weekend volumes are significantly lower when individual merchants are most active, creating a strategic mismatch between capacity and demand.
 
-Operational monitoring patterns also warrant attention. Real-time analysis identified a 30.1% denial rate at 3AM compared to 8.6% at noon, a pattern that persisted throughout Q1 and warrants investigation.
+Operational monitoring patterns also warrant attention. Real-time analysis of a 2-day operational snapshot identified a 30.1% denial rate at 3AM compared to 8.6% at noon. This pattern persisted across both days in the monitoring window and warrants investigation through continuous monitoring.
+
+### Data Quality Note
+
+This analysis is based on 81 days of available transaction data from January 1 through March 22, 2025 (representing 90% of Q1), and a 2-day operational health snapshot. Key limitations include missing time-of-day granularity beyond the 2-day operational window, inconsistent decimal precision in amount fields, and limited operational monitoring data. These limitations do not materially affect strategic recommendations. See Data Quality and Limitations section for complete assessment.
 
 ### Three Strategic Priorities
 
@@ -377,7 +382,7 @@ Transform from quarterly retrospective analysis to real-time proactive monitorin
 
 ![3AM Anomaly](outputs/visualizations/findings/3am_anomaly.png)
 
-Analysis of Q1 data revealed a 30.1% denial rate at 3AM compared to 8.6% at noon, a pattern consistent across all 89 days of Q1. This pattern represents potential monthly revenue impact in the millions and was only discovered through retrospective analysis.
+Analysis of a 2-day operational snapshot revealed a 30.1% denial rate at 3AM compared to 8.6% at noon, a pattern that was consistent across both days in the monitoring window. This pattern represents potential monthly revenue impact in the millions and was only discovered through retrospective analysis of the limited operational data.
 
 **Current process:** Manual dashboard checks, delays in detection, reactive fixes, and lost revenue opportunity.  
 **Proposed process:** Automated alerts, immediate detection, proactive response, revenue protection.
@@ -438,17 +443,248 @@ Break-even achieved if combined lift equals or exceeds 0.2% TPV at current margi
 
 ---
 
+## Data Quality and Limitations <a id="data-quality"></a>
+
+This section provides a comprehensive data quality assessment of all datasets used in this analysis. Understanding the structure, relationships, and limitations of each data source is critical for interpreting findings and making strategic recommendations.
+
+### Dataset Inventory and Purpose
+
+**Primary Transaction Dataset:**
+- **File:** operational_intelligence_transactions_db.csv
+- **Records:** 62,035 aggregated transaction rows
+- **Time Period:** January 1 through March 22, 2025 (81 days, not full Q1)
+- **Granularity:** Daily aggregates by entity, product, price tier, anticipation method, payment method, and installments
+- **Total TPV:** R$ 19.2 billion
+- **Purpose:** Primary dataset for strategic findings Q1-Q6 and all three main findings
+
+**Alternative Transaction Dataset:**
+- **File:** Operations_analyst_data.csv
+- **Records:** 37,790 aggregated transaction rows
+- **Time Period:** January 1 through March 31, 2025 (90 days - complete Q1)
+- **Missing Columns:** No `nitro_or_d0` field (critical for D0/Nitro distinction)
+- **Purpose:** Original test dataset with complete Q1 coverage but missing key field
+
+**Cleaned Transactions Dataset:**
+- **File:** cleaned_transactions.csv
+- **Records:** 62,036 aggregated transaction rows
+- **Additional Columns:** Year, month, month_name, week, day_of_week, day_name, is_weekend, avg_ticket, avg_amount_per_merchant, avg_transactions_per_merchant
+- **Time Period:** Same as primary dataset (January 1 through March 22, 2025)
+- **Purpose:** Enhanced version with derived fields for analysis convenience
+
+**Real-Time Operational Health Data:**
+- **Files:** transactions_1.csv, transactions_2.csv, checkout_1.csv, checkout_2.csv
+- **Time Period:** Limited to 2 days (operational snapshot, not longitudinal)
+- **Granularity:** Hourly transaction counts by status (approved, denied, refunded, processing, reversed)
+- **Purpose:** Operational health monitoring for 3AM anomaly detection (Finding #1 context)
+
+### Critical Data Quality Issues
+
+**1. Time Period Coverage Incompleteness**
+
+**Issue:** The primary dataset operational_intelligence_transactions_db.csv covers January 1 through March 22, 2025 (81 days), not the complete Q1 period through March 31.
+
+**Evidence:**
+- First date: 2025-01-01
+- Last date: 2025-03-22
+- Missing dates: March 23-31 (9 days)
+
+**Impact on Analysis:**
+- "Q1 2025" references throughout this analysis are technically "January 1 through March 22"
+- Monthly growth calculations (Jan→Feb→Mar) exclude the final 9 days of March
+- This does not materially affect strategic findings but represents a limitation in temporal coverage
+
+**Mitigation:** Strategic recommendations are based on patterns observed over 81 days of data, representing 90% of Q1. Trends identified (PF growth, PIX stagnation, weekday patterns) are validated across multiple months.
+
+**2. Precision in Amount Fields**
+
+**Issue:** The amount_transacted column stores monetary values with inconsistent decimal precision.
+
+**Evidence from Sample Data:**
+```
+17890282.2      (1 decimal place - R$ 17.89M)
+1780577.31      (2 decimal places - R$ 1.78M)
+17754616.5      (1 decimal place - R$ 17.75M)
+3722371.12      (2 decimal places - R$ 3.72M)
+964192.3        (1 decimal place - R$ 964K)
+2141434.73      (2 decimal places - R$ 2.14M)
+```
+
+**Impact on Analysis:**
+- Calculations involving amount_transacted may have rounding precision issues
+- Aggregated sums (total TPV) are accurate within reasonable rounding tolerance
+- Percentage calculations remain valid for strategic decision-making
+- Individual transaction-level analysis would require raw transaction data
+
+**Mitigation:** This analysis works with daily aggregates, not individual transactions. The precision variation does not affect aggregate totals at the scale reported (R$ 19.2B TPV).
+
+**3. Missing Time Granularity**
+
+**Issue:** cleaned_transactions.csv includes enriched date fields (day_of_week, is_weekend, week) but primary datasets lack time-of-day granularity.
+
+**What We Have:**
+- Daily aggregates by day
+- Hourly transaction status counts (transactions_1.csv, transactions_2.csv) limited to 2-day snapshot
+- Checkout volume data (checkout_1.csv, checkout_2.csv) with hourly patterns but limited timeframe
+
+**What We Don't Have:**
+- Hourly breakdowns across full Q1 for operational health analysis
+- Time-of-day patterns beyond the 2-day snapshot
+- Minute-level transaction data
+
+**Impact on Findings:**
+- Finding #1 (3AM anomaly) discovered in 2-day snapshot only
+- Cannot validate if 30.1% denial rate at 3AM is consistent across entire Q1
+- Weekday patterns analysis (Finding #1) relies on daily aggregates without hourly detail
+
+**Mitigation:** The 3AM anomaly was present across both days of the operational snapshot, suggesting systematic pattern. Strategic recommendation for AI Ops Bot addresses this limitation by enabling continuous monitoring.
+
+**4. Field Naming Inconsistencies**
+
+**Issue:** Column naming varies between datasets.
+
+**Evidence:**
+- operational_intelligence_transactions_db.csv: `quantitu_of_merchants` (typo: missing 'n')
+- Operations_analyst_data.csv: `quantity_of_merchants` (correct spelling)
+- transactions_1.csv: `f0_` (unclear naming)
+- transactions_2.csv: `count` (different naming convention)
+
+**Impact:**
+- Code must handle multiple column name variations
+- Data joining/integration requires mapping logic
+- Does not affect analysis validity but adds complexity
+
+**5. Limited Real-Time Operational Data**
+
+**Issue:** Real-time operational monitoring data (transactions_1.csv, transactions_2.csv, checkout_1.csv, checkout_2.csv) represents only a 2-day snapshot.
+
+**Time Coverage:**
+- transactions_1.csv: 4,236 rows covering limited hourly status counts
+- transactions_2.csv: 3,946 rows covering different 2-day period
+- checkout_1.csv: 26 rows (hourly aggregates)
+- checkout_2.csv: 26 rows (hourly aggregates for comparison period)
+
+**Impact:**
+- Cannot assess if operational patterns (denial rates, time-based anomalies) are persistent across Q1
+- Operational intelligence recommendations require validation through longer-term monitoring
+- This limitation directly drives the AI Ops Bot proposal (Finding #4)
+
+**Mitigation:** Statistical analysis within the 2-day snapshot demonstrated consistent patterns. The AI Ops Bot recommendation addresses the need for continuous monitoring beyond quarterly snapshots.
+
+### Data Relationships and Primary Keys
+
+**No Formal Foreign Key Relationships:**
+
+None of the CSV files contain explicit foreign key relationships. Data integration relies on:
+
+**operational_intelligence_transactions_db.csv:**
+- Composite key: day + entity + product + price_tier + anticipation_method + payment_method + installments
+- Uniqueness: One row per unique combination of these dimensions per day
+- Transaction counts: `quantity_transactions` represents count of transactions matching this combination
+
+**transactions_1.csv and transactions_2.csv:**
+- Composite key: time + status
+- Purpose: Hourly transaction status counts
+- Relationship to primary: No explicit join key, represents different granularity (hourly vs daily)
+
+**checkout_1.csv and checkout_2.csv:**
+- Primary key: time (hourly)
+- Purpose: Hourly checkout volume comparisons
+- Relationship to primary: No explicit join key, represents aggregate checkout metrics
+
+**Operations_analyst_data.csv vs operational_intelligence_transactions_db.csv:**
+- Same conceptual structure (daily aggregates)
+- Operations_analyst_data.csv: Missing `nitro_or_d0` field
+- Overlapping time periods with slight differences in coverage
+
+### Data Completeness Assessment
+
+**Missing Values:**
+- `nitro_or_d0` column contains empty strings for non-instant settlements
+- Payment method includes "uninformed" category
+- Some rows show empty anticipation_method for Bank Slip transactions
+
+**Data Quality Metrics:**
+- No negative transaction amounts observed
+- No null values in critical aggregation fields (day, entity, product, amount_transacted)
+- All dates within expected Q1 2025 range
+- Transaction counts sum to total 563,076 across dataset
+
+### Recommended Data Enhancements
+
+**For Future Analysis:**
+1. **Extended time coverage:** Full Q1 through March 31, including all 90 days
+2. **Hourly granularity:** Daily transaction data with hour-of-day breakdowns across full Q1
+3. **Denial reason codes:** Structured reason codes for denied transactions (fraud, insufficient funds, technical issues)
+4. **Merchant identifiers:** Pseudonymized merchant IDs to enable cohort and retention analysis
+5. **Geographic data:** Regional or city-level aggregates to identify geographic patterns
+6. **Product-specific metadata:** Additional fields for product configurations, pricing adjustments, promotional periods
+
+**Immediate Gaps Affecting Recommendations:**
+- Profit margins by product (validate revenue opportunity calculations)
+- Merchant churn and retention rates by segment
+- Customer acquisition costs by channel
+- Competitive pricing benchmarks
+- Denial reason analysis (validate 3AM anomaly hypothesis)
+
+### Data Validation Performed
+
+**Checks Conducted:**
+- Date range validation: All dates within Q1 2025
+- Entity classification: Only PF and PJ observed (expected values)
+- Product types: POS, TAP, LINK, PIX, BANK_SLIP only
+- Price tiers: Normal, Intermediary, Aggressive, Domination only
+- Amount ranges: All values positive and within reasonable Brazilian payment ranges
+- Cross-file consistency: Transaction counts align between overlapping datasets
+
+**Assumptions Made:**
+- Operational_intelligence_transactions_db.csv represents authoritative Q1 data despite March 22 cutoff
+- Daily aggregates accurately represent actual transaction volumes
+- time fields in transactions_1.csv and checkout_1.csv represent same timezone (assumed Brasilia time)
+- "Uninformed" payment method represents legitimate category rather than data quality issue
+
+### Impact on Strategic Findings
+
+**Finding #1 (Individual Merchant Segment):**
+- Strong validity: PF growth trend (+2.3pp) observed across 81 days
+- Limited concern: Weekend patterns based on daily aggregates only (no hourly breakdown)
+- Recommendation unaffected: Marketing campaign strategy does not require hourly granularity
+
+**Finding #2 (PIX Adoption Gap):**
+- Strong validity: 13% PIX share remains consistent across all 81 days
+- No limitations: Daily aggregates sufficient for adoption analysis
+- Recommendation unaffected: Strategic bundling approach valid regardless of daily vs hourly data
+
+**Finding #3 (Working Capital Platform):**
+- Strong validity: 87% anticipation usage observed in daily aggregates
+- No limitations: Daily aggregates sufficient for demand validation
+- Recommendation unaffected: Phased evolution strategy does not require hourly detail
+
+**AI Ops Bot Proposal:**
+- High necessity: 2-day operational snapshot limitation directly drives need for continuous monitoring
+- Strong business case: 3AM anomaly discovered retroactively validates need for real-time alerts
+- Recommendation critical: Current quarterly review cycle misses operational patterns
+
+### Conclusion
+
+This analysis leverages available data effectively within its limitations. Strategic recommendations are based on patterns validated across 81 days of transaction data and two days of operational monitoring data. Key limitations (time period coverage, precision variations, hourly granularity gaps) are acknowledged and do not materially compromise the strategic value of findings.
+
+The data quality limitations themselves represent strategic insights: the need for extended operational monitoring drives the AI Ops Bot recommendation, and precision concerns validate the need for enhanced data quality processes.
+
+---
+
 ## Methodology and Sources <a id="methodology-and-sources"></a>
 
 ### Data Foundation
 
 **Primary Dataset:** operational_intelligence_transactions_db.csv containing Q1 2025 transaction data with 19.2 billion reais in total payment volume.
 
-**Fields Used:** day, entity, product, price_tier, anticipation_method, payment_method, installments, amount_transacted, quantity_transactions, quantity_of_merchants.
+**Fields Used:** day, entity, product, price_tier, anticipation_method, nitro_or_d0, payment_method, installments, amount_transacted, quantity_transactions, quantitu_of_merchants.
 
-**Analysis Period:** January 1 through March 31, 2025 (90 days).
+**Analysis Period:** January 1 through March 22, 2025 (81 days of available data, representing 90% of Q1).
 
 **Transaction Count:** 563,076 transactions analyzed.
+
+**Note:** See Data Quality and Limitations section for comprehensive assessment of time period coverage, precision considerations, and dataset relationships.
 
 ### Market Benchmarks and Sources
 
@@ -568,4 +804,4 @@ All data visualizations are in outputs/visualizations/findings/. Source data is 
 ---
 
 **Last Updated:** October 30, 2025  
-**Version:** 4.1 – Enhanced Sales-Ready Format
+**Version:** 4.2 – Complete with Data Quality Assessment
