@@ -9,15 +9,88 @@
 -- Adjust date functions and syntax as needed for your specific database
 
 -- ================================================================================
+-- TABLE MAPPING AND DATA SOURCE
+-- ================================================================================
+--
+-- SOURCE DATA FILE: data/operational_intelligence_transactions_db.csv
+--
+-- TABLE SCHEMA (PostgreSQL/BigQuery):
+--   Table Name: transactions
+--   
+--   Column Mapping from CSV:
+--   - day                    DATE          Transaction date
+--   - entity                 VARCHAR       Entity type: 'PF' (Individual) or 'PJ' (Business)
+--   - product                VARCHAR       Product type: 'pix', 'pos', 'tap', etc.
+--   - price_tier             VARCHAR       Pricing tier: 'normal', 'intermediary', 'aggressive', 'domination'
+--   - anticipation_method    VARCHAR       Settlement method: 'Pix', 'D1Anticipation', 'D0', 'Nitro', 'BankSlip', etc.
+--   - nitro_or_d0            VARCHAR       Binary flag for instant settlement
+--   - payment_method         VARCHAR       Payment method: 'credit', 'debit', 'uninformed', etc.
+--   - installments           INTEGER       Number of installments (1 = single payment)
+--   - amount_transacted      DECIMAL       Total payment volume for the day (R$)
+--   - quantity_transactions  INTEGER       Number of transactions for the day
+--   - quantitu_of_merchants  INTEGER       Number of unique merchants transacting on this day
+--                                          NOTE: Column name has typo ("quantitu" instead of "quantity")
+--
+-- IMPORTANT DATA LINEAGE:
+--   - This is AGGREGATED daily data, not transaction-level data
+--   - Each row represents one day's aggregate metrics for a specific combination of dimensions
+--   - The CSV contains 62,030 rows representing different day × dimension combinations
+--
+-- ETL PROCESS (if loading CSV into database):
+--   1. Load CSV into staging table
+--   2. Rename column: quantitu_of_merchants → quantity_of_merchants (fix typo)
+--   3. Convert day to DATE type
+--   4. Create final transactions table with appropriate data types
+--
+-- EXAMPLE TABLE CREATION (PostgreSQL):
+--   CREATE TABLE transactions (
+--       day DATE NOT NULL,
+--       entity VARCHAR(10),
+--       product VARCHAR(50),
+--       price_tier VARCHAR(20),
+--       anticipation_method VARCHAR(50),
+--       nitro_or_d0 VARCHAR(10),
+--       payment_method VARCHAR(50),
+--       installments INTEGER,
+--       amount_transacted DECIMAL(15,2),
+--       quantity_transactions INTEGER,
+--       quantity_of_merchants INTEGER
+--   );
+--
+-- PERFORMANCE NOTES:
+--   - Queries use window functions (OVER()) for percentage calculations - efficient on modern databases
+--   - Date functions (DATE_TRUNC, EXTRACT) may vary by database - adjust as needed
+--   - Consider adding indexes on: day, entity, product, anticipation_method for faster filtering
+--   - Estimated execution time: 1-5 seconds per query on dataset of this size (62K rows)
+--
+-- MERCHANT COUNT AGGREGATION CLARIFICATION:
+--   ⚠️ CRITICAL: The quantity_of_merchants field represents "merchant-days" not unique merchants.
+--   
+--   - SUM(quantity_of_merchants) = Total transacting-merchant-days (not unique merchant count)
+--   - If a merchant transacts on 5 days, they count as 5 in the sum
+--   - To get unique merchant count, you would need merchant_id field (not available in this dataset)
+--   
+--   EXAMPLE:
+--     Day 1: 100 merchants
+--     Day 2: 100 merchants (50 same as Day 1, 50 new)
+--     SUM(quantity_of_merchants) = 200 (merchant-days)
+--     Actual unique merchants = 150 (but cannot calculate without merchant_id)
+--
+--   RECOMMENDATION: Interpret merchant metrics as "activity level" not "unique count"
+--   - Use for trend analysis (more merchant-days = more activity)
+--   - Do not use for customer acquisition metrics (requires unique merchant_id)
+
+-- ================================================================================
 -- FINDING #1: PF SEGMENT + WEEKEND MARKET CAPTURE
 -- ================================================================================
 
 -- 1.1 PF vs PJ Segment Analysis (Entity Performance)
+-- NOTE: total_merchants represents transacting-merchant-days, not unique merchant count
 SELECT 
     entity,
     SUM(amount_transacted) as tpv,
     SUM(quantity_transactions) as total_transactions,
-    SUM(quantity_of_merchants) as total_merchants,
+    SUM(quantity_of_merchants) as total_merchant_days,  -- ⚠️ See MERCHANT COUNT AGGREGATION CLARIFICATION above
     ROUND(100.0 * SUM(amount_transacted) / SUM(SUM(amount_transacted)) OVER (), 2) as pct_of_total_tpv
 FROM transactions
 GROUP BY entity
@@ -163,8 +236,8 @@ SELECT
 FROM transactions
 UNION ALL
 SELECT 
-    'Total Merchants',
-    TO_CHAR(SUM(quantity_of_merchants), 'FM999,999,999')
+    'Total Merchant-Days',  -- ⚠️ This is transacting-merchant-days, not unique merchant count
+    TO_CHAR(SUM(quantity_of_merchants), 'FM999,999,999')  -- See MERCHANT COUNT AGGREGATION CLARIFICATION in header
 FROM transactions
 UNION ALL
 SELECT 
@@ -200,7 +273,39 @@ ORDER BY month;
 
 
 -- ================================================================================
+-- DATA LINEAGE AND EXECUTION NOTES
+-- ================================================================================
+--
+-- EXECUTION WORKFLOW:
+--   1. Load CSV into database (see TABLE MAPPING section above)
+--   2. Verify data types and fix column name typo (quantitu_of_merchants)
+--   3. Run queries in order (findings 1-3, then supporting queries)
+--   4. Export results to match README.md analysis
+--
+-- VALIDATION QUERIES:
+--   - Run "Complete Q1 2025 Summary" query first to verify data load
+--   - Expected total TPV: ~R$ 19.2B (check README.md for exact figure)
+--   - Expected date range: 2025-01-01 to 2025-03-31 (Q1 2025)
+--
+-- REPRODUCIBILITY:
+--   - All queries are deterministic (no random sampling)
+--   - Results should match README.md calculations exactly
+--   - If discrepancies found, check: date filters, aggregation method, null handling
+--
+-- PERFORMANCE OPTIMIZATION (if running on large database):
+--   - Create indexes: CREATE INDEX idx_day ON transactions(day);
+--   - Create indexes: CREATE INDEX idx_entity ON transactions(entity);
+--   - Create indexes: CREATE INDEX idx_product ON transactions(product);
+--   - Consider partitioning by month if table grows large
+--
+-- ALTERNATIVE IMPLEMENTATIONS:
+--   - These queries can be adapted for pandas/Python: Use GROUP BY, pivot tables
+--   - For Excel: Use pivot tables with similar grouping logic
+--   - For BigQuery: Queries should run as-is with minimal modification
+--
+-- ================================================================================
 -- END OF ESSENTIAL QUERIES
 -- ================================================================================
 -- Total: 12 strategic queries supporting 3 findings + business questions
+-- Execution Time Estimate: 5-15 seconds total (depending on database size and indexing)
 -- ================================================================================

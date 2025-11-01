@@ -16,6 +16,10 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from pathlib import Path
 import warnings
+import sys
+import argparse
+import traceback
+from datetime import datetime
 warnings.filterwarnings('ignore')
 
 # Setup paths
@@ -24,12 +28,24 @@ data_path = project_root / 'data'
 output_path = project_root / 'outputs' / 'visualizations' / 'findings'
 output_path.mkdir(parents=True, exist_ok=True)
 
+# Parse command line arguments
+parser = argparse.ArgumentParser(description='Generate all visualizations for CloudWalk Operational Intelligence Analysis')
+parser.add_argument('--debug', action='store_true', help='Enable debug mode with full stack traces')
+args = parser.parse_args()
+
+DEBUG_MODE = args.debug
+
 print("=" * 80)
 print("CLOUDWALK VISUALIZATION GENERATOR")
 print("=" * 80)
 print(f"📁 Project Root: {project_root}")
 print(f"📊 Output Path: {output_path}")
+if DEBUG_MODE:
+    print("🐛 Debug Mode: ENABLED (full stack traces will be shown)")
 print()
+
+# Track execution start time for summary report
+start_time = datetime.now()
 
 # Load datasets
 print("📥 Loading datasets...")
@@ -61,7 +77,12 @@ def save_plotly_fig(fig, filename, width=1200, height=600):
         print(f"✅ Created: {filename}")
         return True
     except Exception as e:
-        print(f"❌ Failed to create {filename}: {str(e)}")
+        print(f"❌ Failed to create {filename}")
+        print(f"   Error type: {type(e).__name__}")
+        print(f"   Error message: {str(e)}")
+        if DEBUG_MODE:
+            print("   Full stack trace:")
+            traceback.print_exc()
         return False
 
 def format_currency(value):
@@ -776,11 +797,67 @@ else:
 # SUMMARY REPORT
 # ============================================================================
 
+# Track success/failure counts
+success_count = 0
+failed_count = 0
+# Note: start_time was initialized at line 48
+
+# Note: We'll count successes/failures by tracking return values from save_plotly_fig
+# For now, we'll provide a summary based on expected vs actual files
+expected_files = [
+    'tpv_by_product_bar.png',
+    'weekday_patterns.png',
+    'avg_ticket_by_product.png',
+    'anticipation_by_entity_comparison.png',
+    'pf_growth_trend.png',
+    'pix_stagnation.png',
+    'pix_national_growth.png',
+    'pix_market_share.png',
+    'cloudwalk_vs_national_pix.png',
+    'product_concentration_treemap.png',
+    'anticipation_timeline.png',
+    '3am_anomaly.png',
+    'peak_hours.png',
+    'installments_distribution.png',
+    'installments_by_product.png',
+    'tpv_by_price_tier.png',
+    'product_usage_by_tier_heatmap.png'
+]
+
+# Count actual files created
+actual_files = [f.name for f in output_path.glob('*.png')]
+created_files = [f for f in expected_files if f in actual_files]
+failed_files = [f for f in expected_files if f not in actual_files]
+
+success_count = len(created_files)
+failed_count = len(failed_files)
+total_count = len(expected_files)
+
+end_time = datetime.now()
+execution_time = (end_time - start_time).total_seconds()
+
 print()
 print("=" * 80)
-print("VISUALIZATION GENERATION COMPLETE - QA VALIDATED")
+print("VISUALIZATION GENERATION COMPLETE")
 print("=" * 80)
+print(f"⏱️  Total execution time: {execution_time:.1f} seconds")
 print()
+print("📊 GENERATION SUMMARY:")
+print(f"  ✅ Success: {success_count}/{total_count} visualizations created")
+if failed_count > 0:
+    print(f"  ❌ Failed: {failed_count}/{total_count} visualizations")
+    if DEBUG_MODE:
+        print(f"  Failed files: {', '.join(failed_files)}")
+print()
+
+if success_count == total_count:
+    print("🎉 All visualizations generated successfully!")
+else:
+    print(f"⚠️  {failed_count} visualization(s) failed to generate.")
+    if not DEBUG_MODE:
+        print("   Run with --debug flag for detailed error information.")
+print()
+
 print("📊 Generated Visualizations:")
 print()
 print("README.md Q&A:")
@@ -811,7 +888,10 @@ print(f"  ✅ All markdown files synchronized with visualization data")
 print()
 print(f"📁 All visualizations saved to: {output_path}")
 print()
-print("✅ Repository complete and ready for use!")
+if success_count == total_count:
+    print("✅ Repository complete and ready for use!")
+else:
+    print("⚠️  Some visualizations failed. Review error messages above or run with --debug for details.")
 print()
 print("=" * 80)
 
