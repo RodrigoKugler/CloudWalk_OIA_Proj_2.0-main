@@ -17,44 +17,8 @@ From data to action in 30/60/90 days. A comprehensive analysis of CloudWalk's Q1
 | **Version** | 5.0 – Comprehensive Assessment-Driven Revision |
 | **Classification** | Internal - Strategic Planning |
 | **Author** | Rodrigo |
-| **Reviewers** | Operations Intelligence Manager (96/100 ✅), Senior Data Engineer (95/100 ✅), QA Auditor (94/100 ✅) |
-| **Assessment Status** | ✅ **APPROVED** - Final Score: 95/100 (A) - Approved for Executive Presentation |
 | **Retention Period** | 3 years |
 | **Last Updated** | October 30, 2025 |
-
-**Distribution:**
-- CloudWalk Executive Team
-- VP Operations
-- Product Leadership
-- Strategic Planning Office
-- Data Analytics Team
-
----
-
-## Glossary
-
-This glossary defines key technical and business terms used throughout this analysis:
-
-| Term | Definition |
-|------|------------|
-| **TPV (Total Payment Volume)** | Total monetary value of all transactions processed during a given period |
-| **PF (Pessoa Física)** | Individual merchant or personal account holder in Brazil (tax ID: CPF) |
-| **PJ (Pessoa Jurídica)** | Business entity or corporate account holder in Brazil (tax ID: CNPJ) |
-| **D0/Nitro** | CloudWalk's instant settlement service; merchant receives funds within hours (brand: "Nitro") |
-| **D1 Anticipation** | Next-day settlement service; merchant receives funds 24 hours after transaction |
-| **Bank Slip** | Traditional Brazilian payment method (boleto bancário); allows installment payments |
-| **PIX** | Brazil's instant payment system operated by Central Bank; real-time settlement 24/7 |
-| **SCFI** | Society of Credit, Financing, and Investment - Brazilian financial institution authorization required for lending activities |
-| **LGPD** | Brazilian General Data Protection Law (Lei Geral de Proteção de Dados) - similar to GDPR |
-| **Installments** | Payment split into multiple monthly parcels (2x, 3x, ..., 12x) |
-| **Price Tier** | Merchant pricing segment category: Normal (standard rates), Intermediary (volume discounts), Aggressive (competitive rates), Domination (lowest rates) |
-| **Anticipation** | Settlement timing option allowing merchants to receive funds before standard settlement date |
-| **Stratus** | CloudWalk's proprietary blockchain infrastructure for payment processing |
-| **InfinitePay** | CloudWalk's payment processing platform for SMEs |
-| **Gig Economy** | Freelance economy including delivery drivers, content creators, beauty professionals, fitness trainers |
-| **B2B** | Business-to-business transactions |
-| **LTV (Lifetime Value)** | Total revenue expected from a customer over their relationship lifecycle |
-| **CAC (Customer Acquisition Cost)** | Total cost to acquire a new customer |
 
 ---
 
