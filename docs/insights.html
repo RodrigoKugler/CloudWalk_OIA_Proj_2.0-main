@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Insights | CloudWalk Q1 2025 Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">☁️</span>
+                <span class="brand-text">CloudWalk OIA</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="findings.html">Strategic Findings</a></li>
+                <li><a href="insights.html" class="active">Business Insights</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Business Insights</h1>
+            <p class="page-subtitle">Direct answers to six business questions with supporting data visualizations and strategic interpretations</p>
+        </div>
+    </section>
+
+    <!-- Question 1 -->
+    <section class="question-section">
+        <div class="container">
+            <div class="question-card">
+                <div class="question-number">Q1</div>
+                <div class="question-content">
+                    <h2>Which product has more TPV?</h2>
+                    <div class="answer-section">
+                        <p class="answer-lead"><strong>Answer:</strong> POS leads with <strong>42.4%</strong> of total payment volume, followed by TAP at <strong>32.2%</strong> and PIX at <strong>12.7%</strong>. The top three products account for <strong>87%</strong> of total volume, indicating clear market focus and concentration.</p>
+                        
+                        <div class="visualization-item large">
+                            <img src="../outputs/visualizations/findings/tpv_by_product_bar.png" alt="TPV by Product" onclick="openLightbox(this.src, 'Total Payment Volume by Product')">
+                            <p class="viz-caption">TPV Distribution by Product</p>
+                        </div>
+
+                        <div class="strategic-context">
+                            <h4>Strategic Context</h4>
+                            <p>Product concentration suggests a deliberate focus on winning products. However, PIX's flat 13% share represents <strong>9 percentage points below the national P2B average of 22%</strong>, indicating a specific growth opportunity in instant payments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question 2 -->
+    <section class="question-section alt">
+        <div class="container">
+            <div class="question-card">
+                <div class="question-number">Q2</div>
+                <div class="question-content">
+                    <h2>How do weekdays increase or decrease TPV?</h2>
+                    <div class="answer-section">
+                        <p class="answer-lead"><strong>Answer:</strong> Mid-week days show peak transaction volumes with <strong>Thursday representing the highest point</strong>. Weekend volumes decline significantly, with <strong>Sunday approximately 50% below peak weekday levels</strong>.</p>
+                        
+                        <div class="visualization-item large">
+                            <img src="../outputs/visualizations/findings/weekday_patterns.png" alt="Weekday Transaction Patterns" onclick="openLightbox(this.src, 'Weekday Transaction Patterns')">
+                            <p class="viz-caption">Weekday Transaction Patterns</p>
+                        </div>
+
+                        <div class="strategic-context">
+                            <h4>Strategic Context</h4>
+                            <p>The weekday-to-weekend volume differential presents a targeted opportunity. Individual merchants, including gig workers and service providers, are most active during weekends when CloudWalk's transaction volumes are lowest. This timing mismatch creates a natural targeting opportunity for weekend-specific acquisition and incentive campaigns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question 3 -->
+    <section class="question-section">
+        <div class="container">
+            <div class="question-card">
+                <div class="question-number">Q3</div>
+                <div class="question-content">
+                    <h2>Which has the biggest average ticket?</h2>
+                    <div class="answer-section">
+                        <p class="answer-lead"><strong>Answer:</strong> <strong>Bank Slip</strong> transactions have the highest average ticket at <strong>R$ 740</strong>, followed by Link at <strong>R$ 645</strong>. POS and PIX show lower average tickets but higher transaction volumes.</p>
+                        
+                        <div class="visualization-item large">
+                            <img src="../outputs/visualizations/findings/avg_ticket_by_product.png" alt="Average Ticket by Product" onclick="openLightbox(this.src, 'Average Ticket by Product')">
+                            <p class="viz-caption">Average Ticket by Product</p>
+                        </div>
+
+                        <div class="strategic-context">
+                            <h4>Strategic Context</h4>
+                            <p>The data reveals two distinct transaction patterns. Bank Slip and Link serve higher-value, less-frequent use cases such as B2B invoices. POS and PIX dominate daily transactions with smaller average tickets, reflecting their role as primary payment methods for small and medium enterprises. This validates POS and PIX as the volume engines of the business while identifying monetization opportunities in specialized payment workflows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question 4 -->
+    <section class="question-section alt">
+        <div class="container">
+            <div class="question-card">
+                <div class="question-number">Q4</div>
+                <div class="question-content">
+                    <h2>Which anticipation method is more used by each entity?</h2>
+                    <div class="answer-section">
+                        <p class="answer-lead"><strong>Answer:</strong> Both individual and business merchants heavily utilize <strong>D1 Anticipation for next-day settlement</strong>. D0/Nitro instant settlement usage is significant, particularly for individual merchants. PIX functions primarily as an instant payment method rather than an anticipation product.</p>
+                        
+                        <div class="visualization-item large">
+                            <img src="../outputs/visualizations/findings/anticipation_by_entity_comparison.png" alt="Anticipation by Entity" onclick="openLightbox(this.src, 'Anticipation Method Usage by Entity Type')">
+                            <p class="viz-caption">Anticipation Usage by Entity Type</p>
+                        </div>
+
+                        <div class="strategic-context">
+                            <h4>Strategic Context</h4>
+                            <p><strong>Eighty-seven percent of total payment volume</strong> involves some form of accelerated settlement, demonstrating strong merchant demand for faster cash access. This pattern validates the working capital opportunity detailed in Finding 3. Merchants across segments value instant money access, providing a foundation for evolving anticipation from an operational feature into a premium financial product.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question 5 -->
+    <section class="question-section">
+        <div class="container">
+            <div class="question-card">
+                <div class="question-number">Q5</div>
+                <div class="question-content">
+                    <h2>Installments Analysis</h2>
+                    <div class="answer-section">
+                        <p class="answer-lead"><strong>Answer:</strong> Installment transactions generate higher average ticket values with <strong>16.4% of total TPV</strong>. Distribution varies by product and entity, with business merchants showing higher adoption rates than individual merchants.</p>
+                        
+                        <div class="visualization-grid">
+                            <div class="visualization-item">
+                                <img src="../outputs/visualizations/findings/installments_distribution.png" alt="Installments Distribution" onclick="openLightbox(this.src, 'Installments Distribution')">
+                                <p class="viz-caption">Installments Distribution</p>
+                            </div>
+                            <div class="visualization-item">
+                                <img src="../outputs/visualizations/findings/installments_by_product.png" alt="Installments by Product" onclick="openLightbox(this.src, 'Installments by Product')">
+                                <p class="viz-caption">Installments by Product</p>
+                            </div>
+                        </div>
+
+                        <div class="strategic-context">
+                            <h4>Strategic Context</h4>
+                            <p>Installments represent a meaningful revenue optimization lever. Average ticket values for installment transactions are <strong>102% higher</strong> than single-payment transactions. Adoption patterns suggest opportunities for targeted optimization through better product design, pricing strategies, and merchant education in segments with highest potential.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question 6 -->
+    <section class="question-section alt">
+        <div class="container">
+            <div class="question-card">
+                <div class="question-number">Q6</div>
+                <div class="question-content">
+                    <h2>Price Tier Analysis</h2>
+                    <div class="answer-section">
+                        <p class="answer-lead"><strong>Answer:</strong> Total payment volume concentrates in the <strong>top two price tiers, accounting for 73.8%</strong> of all volume. Product mix varies by tier, with higher tiers showing increased usage of modern payment methods.</p>
+                        
+                        <div class="visualization-grid">
+                            <div class="visualization-item">
+                                <img src="../outputs/visualizations/findings/tpv_by_price_tier.png" alt="TPV by Price Tier" onclick="openLightbox(this.src, 'Total Payment Volume by Price Tier')">
+                                <p class="viz-caption">TPV by Price Tier</p>
+                            </div>
+                            <div class="visualization-item">
+                                <img src="../outputs/visualizations/findings/product_usage_by_tier_heatmap.png" alt="Product Usage by Tier" onclick="openLightbox(this.src, 'Product Usage by Price Tier')">
+                                <p class="viz-caption">Product Usage by Tier</p>
+                            </div>
+                        </div>
+
+                        <div class="strategic-context">
+                            <h4>Strategic Context</h4>
+                            <p>Tier concentration indicates effective segmentation. The data reveals opportunities for strategic migration, particularly moving merchants from Normal tier to higher-value tiers. Entity patterns show business merchants clustering in higher tiers while individual merchants concentrate in Normal tier, suggesting different approaches for different segments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Explore Strategic Findings</h2>
+                <p>These insights inform our three strategic priorities</p>
+                <div class="cta-buttons">
+                    <a href="findings.html" class="btn btn-primary">View Strategic Findings →</a>
+                    <a href="index.html" class="btn btn-outline">← Back to Overview</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CloudWalk Operational Intelligence</h4>
+                    <p>Q1 2025 Strategic Analysis</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Overview</a></li>
+                        <li><a href="findings.html">Strategic Findings</a></li>
+                        <li><a href="insights.html">Business Insights</a></li>
+                        <li><a href="methodology.html">Methodology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Document Info</h4>
+                    <p><strong>Version:</strong> 5.0</p>
+                    <p><strong>Last Updated:</strong> October 30, 2025</p>
+                    <p><strong>Status:</strong> Approved (95/100)</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CloudWalk Operational Intelligence Analysis. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
