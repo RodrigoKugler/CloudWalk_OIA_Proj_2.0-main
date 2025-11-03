@@ -97,13 +97,25 @@
                     </button>
                     <div class="collapsible-content" style="display: none;">
                         <div class="methodology-content">
-                            <p><strong>Issue:</strong> amount_transacted column has inconsistent decimal precision (1-2 decimal places).</p>
+                            <p><strong>Issue 2a - Source Field (amount_transacted):</strong> Has inconsistent decimal precision (1-2 decimal places).</p>
+                            <p><strong>Assessment:</strong> This is <strong>normal for currency data</strong> and represents reasonable rounding tolerance.</p>
                             <p><strong>Impact Calculation:</strong></p>
                             <ul>
                                 <li>Maximum rounding error: R$ 1,123.10 (0.0000058% of total TPV)</li>
                                 <li>Expected rounding error: R$ 561.55 (0.0000029% of total TPV)</li>
+                                <li>Conclusion: <strong>Negligible impact</strong> - less than 0.00001% of total TPV</li>
                             </ul>
-                            <p><strong>Conclusion:</strong> Precision variation has <strong>negligible impact</strong> on aggregate totals and strategic conclusions. Less than 0.00001% of total TPV, immaterial for decision-making.</p>
+                            
+                            <p><strong>Issue 2b - Calculated Fields (avg_* columns):</strong> Have excessive decimal precision (12-16 decimal places).</p>
+                            <p><strong>Assessment:</strong> This is <strong>not normal</strong> and results from floating-point calculation artifacts. Currency fields should have 2 decimal places.</p>
+                            <p><strong>Examples:</strong></p>
+                            <ul>
+                                <li>avg_ticket: 49.596311245904 (12 decimals) - should be 49.60</li>
+                                <li>avg_amount_per_merchant: 250.71868097987553 (14 decimals) - should be 250.72</li>
+                                <li>avg_transactions_per_merchant: 5.0551880710802175 (16 decimals) - should be 5.06</li>
+                            </ul>
+                            <p><strong>Impact:</strong> No material impact on analysis since these calculated fields are not used in primary calculations. Strategic findings are based on `amount_transacted` (proper precision).</p>
+                            <p><strong>Recommendation:</strong> Round calculated currency fields to 2 decimals for future data processing to align with currency standards.</p>
                         </div>
                     </div>
                 </div>

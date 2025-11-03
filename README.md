@@ -948,7 +948,11 @@ This section provides a comprehensive data quality assessment of all datasets us
 
 **2. Precision in Amount Fields**
 
-**Issue:** The amount_transacted column stores monetary values with inconsistent decimal precision.
+**Issue:** The dataset contains precision inconsistencies in both source and calculated fields.
+
+**2a. Source Field (amount_transacted):**
+
+The `amount_transacted` column stores monetary values with inconsistent decimal precision:
 
 **Evidence from Sample Data:**
 ```
@@ -960,15 +964,47 @@ This section provides a comprehensive data quality assessment of all datasets us
 2141434.73      (2 decimal places - R$ 2.14M)
 ```
 
+This 1-2 decimal place variation is **normal for currency data** and represents reasonable rounding tolerance.
+
+**2b. Calculated Fields (Excessive Precision):**
+
+The `cleaned_transactions.csv` file contains calculated fields with **excessive decimal precision** (12-16 decimal places), which is **not normal** for currency or business metrics:
+
+**Evidence:**
+```
+avg_ticket:                    49.596311245904        (12 decimals)
+avg_amount_per_merchant:       250.71868097987553    (14 decimals)
+avg_transactions_per_merchant: 5.0551880710802175   (16 decimals)
+```
+
+**Distribution Analysis:**
+- **avg_ticket**: Up to 16 decimal places (31.3% of rows have 13 decimals)
+- **avg_amount_per_merchant**: Up to 16 decimal places (32.8% of rows have 13 decimals)
+- **avg_transactions_per_merchant**: Up to 16 decimal places (30.7% of rows have 16 decimals)
+
+**Why This Happens:**
+These fields are calculated through division operations (e.g., `amount_transacted / quantity_transactions`), which produces floating-point precision artifacts. Currency and business metrics should typically be rounded to 2 decimal places.
+
+**Impact:**
+- **For analysis:** Minimal impact since these are calculated/derived fields not used in primary calculations
+- **For presentation:** Aesthetically problematic - displays excessive precision that appears unprofessional
+- **For accuracy:** The precision is artificial - rounding to 2 decimals would not materially change results
+- **For currency fields:** Standard practice is 2 decimal places for monetary values
+
+**Recommended Action:**
+- Round `avg_ticket` and `avg_amount_per_merchant` to 2 decimal places (currency standard)
+- Round `avg_transactions_per_merchant` to 2-4 decimal places (sufficient for transaction count ratios)
+- Note: This analysis primarily uses `amount_transacted` (1-2 decimals) which is appropriate
+
 **Impact on Analysis:**
 - Calculations involving amount_transacted may have rounding precision issues
 - Aggregated sums (total TPV) are accurate within reasonable rounding tolerance
 - Percentage calculations remain valid for strategic decision-making
 - Individual transaction-level analysis would require raw transaction data
 
-**Precision Impact Calculation:**
+**Precision Impact Calculation (amount_transacted only):**
 
-The dataset contains 62,034 rows with the following precision distribution:
+The `amount_transacted` field contains 62,034 rows with the following precision distribution:
 - **18,065 rows (29.1%)** use 1 decimal place: maximum rounding error = ±R$ 0.05 per row
 - **43,969 rows (70.9%)** use 2 decimal places: maximum rounding error = ±R$ 0.005 per row
 
@@ -988,7 +1024,18 @@ Assuming rounding errors are normally distributed (some up, some down):
 - Maximum error: R$ 1,123.10 / R$ 19.2B = **0.0000058%** (0.058 basis points)
 - Expected error: R$ 561.55 / R$ 19.2B = **0.0000029%** (0.029 basis points)
 
-**Conclusion:** The precision variation has **negligible impact** on aggregate totals and strategic conclusions. The maximum rounding error represents less than **0.00001%** of total TPV, which is immaterial for decision-making purposes.
+**Conclusion for amount_transacted:**
+The 1-2 decimal place variation has **negligible impact** on aggregate totals and strategic conclusions. The maximum rounding error represents less than **0.00001%** of total TPV, which is immaterial for decision-making purposes. This level of precision is normal for currency aggregation.
+
+**Conclusion for Calculated Fields:**
+The excessive precision (12-16 decimals) in `avg_ticket`, `avg_amount_per_merchant`, and `avg_transactions_per_merchant` does not impact this analysis because:
+1. These fields are not used in primary calculations
+2. Strategic findings are based on `amount_transacted` (proper precision)
+3. These are derived/calculated fields, not source data
+4. Rounding would not materially affect any insights
+
+**Data Quality Recommendation:**
+For future data processing, round calculated currency fields to 2 decimal places to align with currency standards and improve presentation quality.
 
 **Mitigation:** This analysis works with daily aggregates, not individual transactions. The precision variation does not affect aggregate totals at the scale reported (R$ 19.2B TPV). All strategic findings and recommendations remain valid despite this minor data quality observation.
 
