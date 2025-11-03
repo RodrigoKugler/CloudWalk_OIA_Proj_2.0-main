@@ -125,7 +125,7 @@ Accelerate acquisition of the PF segment through focused product positioning and
 
 **Priority 2: Close PIX Adoption Gap**
 
-Capture growth opportunity: CloudWalk's 13% PIX adoption (Q1 sample) compared to 43% national average suggests potential for expansion. Strategic target: Grow to **20% PIX share** to capture incremental volume while preserving POS/TAP profitability. Bundle PIX with instant settlement capabilities into a "CloudWalk Instant" suite that monetizes reliability and automation.
+Capture growth opportunity: CloudWalk's 13% PIX adoption (Q1 sample) compared to 43% national average suggests potential for expansion. Strategic target: Grow to **20% PIX share** to capture incremental volume while preserving POS/TAP profitability. **Reposition and bundle existing capabilities** (PIX, instant settlement, anticipation, analytics) into a "CloudWalk Instant" premium tier that monetizes reliability and automation.
 
 **Priority 3: Evolve Anticipation into Working Capital Platform**
 
@@ -389,16 +389,21 @@ While specific competitor PIX adoption rates are not publicly disclosed, nationa
 
 **THE SOLUTION:**
 
-**CloudWalk Instant Suite** bundles PIX with instant settlement, flexible anticipation, and cash flow forecasting into a premium offering that monetizes reliability and automation rather than payment rails themselves.
+**CloudWalk Instant Suite** is a bundling and positioning strategy that packages existing CloudWalk capabilities (PIX, instant settlement via Nitro D0, flexible anticipation, and analytics) into a premium tier offering. This approach monetizes reliability and automation rather than payment rails themselves.
 
-**Product Bundle Components:**
-- One-click PIX activation with automatic reconciliation
-- Instant settlement through Nitro D0 with flexible anticipation options
-- Smart routing recommendations optimizing payment method selection
-- Cash flow forecasting with predictive analytics
-- ERP integrations and API access for enterprise workflows
+**What CloudWalk Already Has (Being Bundled):**
+- ✅ PIX integration (already operational - 13% of TPV)
+- ✅ Instant settlement via Nitro D0 (already exists for card transactions)
+- ✅ Flexible anticipation options (D1 Anticipation - 87% of TPV already uses this)
+- ✅ Analytics dashboard (real-time cash flow visibility already exists)
+- ✅ ERP integrations and API access (existing infrastructure)
 
-**Why this approach works:** Competing on PIX rails themselves is not viable as they are free and standardized infrastructure operated by Brazil's Central Bank. The strategy focuses on monetizing operational excellence, reliability, automation, and value-added services that merchants pay for. CloudWalk's proprietary Stratus blockchain enables instant settlement at lower marginal cost than competitors using third-party infrastructure, creating a natural advantage.
+**What's New (Minor Enhancements):**
+- Predictive cash flow forecasting (ML enhancement to existing analytics dashboard)
+- Premium tier bundling and positioning (marketing/packaging strategy)
+- One-click activation flow for bundled features (UX streamlining)
+
+**Why this approach works:** Competing on PIX rails themselves is not viable as they are free and standardized infrastructure operated by Brazil's Central Bank. CloudWalk already has the technical capabilities—the strategy is **repositioning and bundling existing features** into a premium offering that merchants pay for. This is primarily a marketing and positioning initiative, not a product development effort.
 
 **Pricing Strategy:**
 - **Standard Tier:** Traditional settlement (T+1 or T+30) - base pricing structure
@@ -418,24 +423,24 @@ While specific competitor PIX adoption rates are not publicly disclosed, nationa
 
 | Timeline | Milestone | Deliverable | Success Metric |
 |----------|-----------|-------------|----------------|
-| 30 days | Research and pricing | Competitive benchmark analysis, margin model, merchant interviews | Pricing strategy confirmed |
-| 60 days | Product development | Bundle SKU, activation flows, cash flow dashboard | Beta ready with 50 merchants |
-| 90 days | Launch | Marketing campaign, onboarding guide, 30-day trial program | 500+ merchants on Instant tier |
+| 30 days | Research and bundling strategy | Competitive benchmark analysis, pricing model, feature bundling design | Premium tier structure confirmed |
+| 60 days | Positioning and minor enhancements | Marketing materials, predictive analytics enhancement, bundle activation UX | Beta ready with 50 merchants |
+| 90 days | Launch | Marketing campaign, merchant education, 30-day trial program | 500+ merchants on Instant tier |
 
 **RESOURCE REQUIREMENTS:**
 
 | Resource Category | Requirement | Rationale | Assumptions |
 |------------------|-------------|-----------|-------------|
 | **Personnel** | | | |
-| Product FTE | 2-3 (full-time) | Product design, bundle SKU creation, pricing strategy, cash flow dashboard development | Product team capacity for 60-day initiative. May require dedicated resources if roadmap is full. |
-| Engineering FTE | 3-4 (full-time) | Bundle activation flows, cash flow forecasting features, dashboard development, API integrations | Development complexity: Medium. Requires frontend, backend, and data engineering. 60-day sprint capacity. |
-| Data Science/ML FTE | 1-2 (full-time) | Cash flow forecasting models, predictive analytics, smart routing recommendations | ML model development: 4-6 weeks. Can leverage existing AI infrastructure. |
-| Marketing FTE | 1-2 (part-time) | Campaign development, merchant education materials, trial program management | Marketing support for launch. Part-time allocation sufficient for 90-day launch period. |
+| Product FTE | 1-2 (part-time) | Premium tier bundling design, pricing strategy, feature packaging | Bundling existing features requires minimal product design. Primarily positioning/marketing support. |
+| Engineering FTE | 1-2 (part-time) | Predictive analytics enhancement to existing dashboard, bundle activation UX streamlining | Minor enhancements to existing systems. Leverages existing infrastructure. |
+| Data Science/ML FTE | 1 (part-time) | Predictive cash flow forecasting (ML enhancement to existing analytics) | Can leverage existing AI infrastructure. Enhancement to current dashboard, not new product. |
+| Marketing FTE | 2-3 (full-time) | Campaign development, premium tier positioning, merchant education, trial program | Primary focus: Marketing and positioning existing capabilities as premium bundle. |
 | **Budget** | | | |
-| Product development | R$ 300-500K | Engineering time, tooling, infrastructure scaling | Development cost estimates. Primarily personnel costs, minimal infrastructure investment. |
-| Marketing campaign | R$ 400-600K | Digital marketing, merchant education, trial program incentives | Marketing budget for Instant tier launch. Focus on existing merchant base conversion. |
+| Minor enhancements | R$ 100-200K | Predictive analytics enhancement, UX streamlining for bundle activation | Minimal development - enhancements to existing systems only. |
+| Marketing campaign | R$ 400-600K | Digital marketing, premium tier positioning, merchant education, trial program | Primary investment: Marketing and positioning existing capabilities. |
 | Competitive intelligence | R$ 50-100K | Market research, competitor pricing analysis, merchant interviews | External research costs for competitive benchmarking. |
-| **Total Estimated Investment** | **R$ 750K-1.2M** | **⚠️ PRELIMINARY ESTIMATE - Requires validation with CloudWalk finance team** | **40% upfront (research/development), 60% over 90-day period** |
+| **Total Estimated Investment** | **R$ 550K-900K** | **⚠️ PRELIMINARY ESTIMATE - Requires validation with CloudWalk finance team** | **30% enhancements, 70% marketing/positioning** |
 | **Infrastructure** | | | |
 | Existing systems | Leverage | STRATUS blockchain, PIX integration, Nitro D0 infrastructure, existing APIs | No new infrastructure required. Product bundling and dashboard features only. |
 | Analytics enhancement | Minor | Cash flow dashboard, predictive analytics infrastructure | Can leverage existing analytics with ML model enhancements. |
@@ -444,17 +449,19 @@ While specific competitor PIX adoption rates are not publicly disclosed, nationa
 | Merchant beta testing | 50 merchants | Beta program for feedback and validation | Existing merchant base for beta testing. No external recruitment needed. |
 
 **Resource Availability Assumptions (REQUIRE VALIDATION):**
-- ⚠️ Product/engineering teams have capacity for 60-day development sprint **[NEEDS VALIDATION]**
-- ✅ Existing STRATUS and PIX infrastructure supports bundling without major changes **[CONFIRMED - uses existing systems]**
-- ⚠️ Marketing budget available for merchant conversion campaigns (R$ 750K-1.2M estimated) **[PRELIMINARY ESTIMATE - ACTUAL BUDGET MUST BE CONFIRMED]**
+- ⚠️ Marketing team has capacity for premium tier positioning campaign (2-3 FTE) **[NEEDS VALIDATION]**
+- ✅ Existing STRATUS, PIX, Nitro D0, and analytics infrastructure support bundling without infrastructure changes **[CONFIRMED - uses existing systems]**
+- ⚠️ Marketing budget available for merchant conversion campaigns (R$ 400-600K estimated) **[PRELIMINARY ESTIMATE - ACTUAL BUDGET MUST BE CONFIRMED]**
+- ⚠️ Minor engineering/ML resources available for predictive analytics enhancement (1-2 part-time FTE) **[NEEDS VALIDATION]**
 - ⚠️ Legal review can be completed within 30-day research phase **[NEEDS VALIDATION]**
 
 **Budget Precision Disclaimer:** See "Budget Estimation Methodology and Limitations" section in Methodology for details on estimation approach and data limitations.
 
 **Timeline Risk Factors:**
-- If product team capacity constrained: Timeline extends to 90 days, or requires dedicated team allocation
+- If marketing team capacity constrained: Timeline extends to 90-120 days for positioning campaign
 - If legal compliance issues identified: May require 2-4 week delay for regulatory consultation
-- If beta testing reveals major issues: Launch may delay 30-60 days for refinements
+- If predictive analytics enhancement requires more development: Minor delay (1-2 weeks) as enhancement is non-critical
+- **Note:** This is primarily a marketing/positioning initiative, not product development—timeline is more flexible
 
 **REGULATORY AND COMPLIANCE ASSESSMENT:**
 
@@ -812,7 +819,7 @@ Priority order balances market urgency, resource efficiency, and strategic align
 | Priority | Action | Strategic Alignment | KPIs | Timeline |
 |----------|--------|---------------------|------|----------|
 | 1 | Individual merchant segment and weekend capture | Gig economy growth, market penetration | Weekend share, activation speed, CAC payback | 30-60 days |
-| 2 | CloudWalk Instant PIX bundle | Ecosystem expansion, technology leadership | PIX share, Instant adoption, retention by tier | 60-90 days |
+| 2 | CloudWalk Instant PIX bundle (bundling/positioning) | Ecosystem expansion, premium tier positioning | PIX share, Instant adoption, retention by tier | 60-90 days (marketing/positioning) |
 | 3 | Working Capital Platform | Ecosystem expansion, revenue transformation | Loan volume, default rate, LTV by segment | 60-180 days |
 
 **Strategic Rationale:**
