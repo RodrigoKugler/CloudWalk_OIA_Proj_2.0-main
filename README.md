@@ -241,7 +241,7 @@ CloudWalk's existing Tap to Pay capability provides a natural advantage as the f
 - Marketing messaging focused specifically on individual merchants and gig workers
 - Weekend-specific incentive campaigns targeting peak activity periods
 - Partnership distribution through gig economy platforms including iFood and Uber
-- Mobile-first onboarding process reducing time to first transaction from 48 hours to under 12 hours
+- Mobile-first onboarding process to reduce time to first transaction
 - Financial services cross-selling including micro-loans and business debit cards
 
 **Why this approach works:** The strategy leverages existing infrastructure rather than requiring new technology development. CloudWalk's Tap to Pay capability provides competitive differentiation from traditional point-of-sale systems that require hardware purchases. The weekend market focus addresses a timing mismatch where CloudWalk has excess capacity exactly when individual merchants are most active.
@@ -251,9 +251,7 @@ CloudWalk's existing Tap to Pay capability provides a natural advantage as the f
 | Metric | Current | Target (90d) | Annual Impact |
 |--------|---------|--------------|---------------|
 | Individual merchant weekend share | 12% | 18%+ | +R$ 480M TPV |
-| Activation to first transaction | 48h | <12h | 75% faster |
-| Individual merchant NPS | 42 | 55+ | Retention improvement |
-| Customer acquisition cost payback | 8 months | <6 months | Unit economics improvement |
+| Activation to first transaction | TBD | Reduced | Faster onboarding |
 
 **THE EXECUTION:**
 
@@ -261,7 +259,7 @@ CloudWalk's existing Tap to Pay capability provides a natural advantage as the f
 |----------|-----------|-------------|----------------|
 | 30 days | Marketing campaign launch | Individual merchant messaging, mobile-first onboarding flow | 1,000 individual merchants onboarded |
 | 60 days | Weekend go-to-market | A/B incentive testing, gig partnerships, creator promotion campaigns | Weekend share increase of 3 percentage points |
-| 90 days | Financial services integration | Micro-loan beta, weekend settlement options, tax assistance features | 15% attach rate on credit products |
+| 90 days | Financial services integration | Micro-loan beta, weekend settlement promotion (existing Nitro capability), tax assistance features | 15% attach rate on credit products |
 
 **Timeline Feasibility Assessment:**
 
@@ -271,7 +269,7 @@ The 30-day timeline is **aggressive but achievable** because this initiative lev
 **Evidence Supporting 30-Day Timeline:**
 - ✅ **Existing Infrastructure:** Tap to Pay, PIX integration, payment links, and settlement options are already operational - no new technology development required
 - ✅ **Messaging Repositioning:** Focus is on repositioning existing CloudWalk capabilities for PF segment, not creating new product features
-- ✅ **Onboarding Flow Enhancement:** Mobile-first onboarding improvements can leverage existing flow (48h→12h optimization vs. new flow development)
+- ✅ **Onboarding Flow Enhancement:** Mobile-first onboarding improvements can leverage existing flow to reduce time to first transaction
 - ✅ **Marketing Asset Reuse:** If CloudWalk has existing PF segment creative assets, messaging can be adapted rather than created from scratch
 - ⚠️ **Partnership Negotiations:** Major partnerships (iFood/Uber) may not finalize in 30 days; timeline assumes initial smaller partnerships or direct acquisition channels as fallback
 
@@ -816,7 +814,7 @@ Priority order balances market urgency, resource efficiency, and strategic align
 
 | Priority | Action | Strategic Alignment | KPIs | Timeline |
 |----------|--------|---------------------|------|----------|
-| 1 | Individual merchant segment and weekend capture | Gig economy growth, market penetration | Weekend share, activation speed, CAC payback | 30-60 days |
+| 1 | Individual merchant segment and weekend capture | Gig economy growth, market penetration | Weekend share, activation speed | 30-60 days |
 | 2 | PIX bundling and positioning | Ecosystem expansion, bundle positioning | PIX share, bundle adoption, retention | 60-90 days (marketing/positioning) |
 | 3 | Working Capital Platform | Ecosystem expansion, revenue transformation | Loan volume, default rate, LTV by segment | 60-180 days |
 
@@ -1451,7 +1449,7 @@ This register documents all key assumptions underlying the strategic findings an
 | **A10** | Marginal cost structure allows for pricing flexibility in bundle add-on (Finding 2) without margin compression | Cost | Medium | Medium - Margin pressure may limit pricing strategy | Analyze marginal costs of STRATUS blockchain instant settlement vs. traditional infrastructure. Review current margin structure and assess pricing elasticity. Validate that bundle pricing is sustainable. | Requires financial analysis |
 | **A11** | CloudWalk has existing marketing creative assets or can develop within 30 days for Priority 1 | Technical | Medium | Medium - Timeline extends if assets must be created | Confirm with marketing team. Assess availability of existing PF segment creative. Validate 30-day timeline assumes asset reuse vs. new creation. | Requires validation |
 | **A12** | Gig economy partnership agreements (iFood, Uber) can be negotiated and executed within 60 days | External | Low | High - Partnership negotiations typically require 60-90 days | Start early with legal/commercial teams. Consider smaller initial partnerships for faster onboarding. Build flexibility for parallel direct acquisition channels if partnerships delayed. | Requires negotiation |
-| **A13** | Mobile-first onboarding flow development can reduce activation time from 48h to <12h with existing infrastructure | Technical | Medium | Medium - Technical constraints may limit optimization | Assess current onboarding flow bottlenecks. Validate that infrastructure supports faster processing. Consider incremental improvements if full 12h target not immediately feasible. | Requires technical assessment |
+| **A13** | Mobile-first onboarding flow development can reduce activation time to first transaction with existing infrastructure | Technical | Medium | Medium - Technical constraints may limit optimization | Assess current onboarding flow bottlenecks. Validate that infrastructure supports faster processing. Define target reduction based on baseline measurement. | Requires technical assessment + baseline measurement |
 | **A14** | National PIX adoption (43% of all payments, 60% YoY growth) demonstrates market acceptance, but 20% target preserves product mix profitability | Market | Medium | Medium - Market saturation or regulatory changes may slow growth, but 13%→20% target remains realistic regardless | Monitor Central Bank PIX statistics monthly. Acknowledge market maturity risk. The 20% target is strategic (profitability preservation) rather than market-driven, so remains valid even if national growth slows. Validate that incremental PIX growth doesn't cannibalize POS/TAP margins. | Market monitoring + profitability validation |
 | **A15** | Transaction history for 5M merchants provides sufficient data quality for AI credit scoring models | Data | High | Medium - Data quality or volume may require additional features | Validate data completeness and quality. Assess if transaction history alone sufficient or if additional data sources needed (business registration, financial statements). Industry benchmarks suggest transaction data alone may be sufficient. | Data validation recommended |
 
