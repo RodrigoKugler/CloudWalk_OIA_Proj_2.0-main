@@ -1120,8 +1120,8 @@ body {
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(107, 70, 193, 0.05) 100%);
-    color: var(--text-primary);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(107, 70, 193, 0.05) 100%) !important;
+    color: var(--text-primary) !important;
     padding: var(--spacing-2xl) 0 var(--spacing-xl);
     text-align: center;
     border-bottom: 1px solid var(--border-color);
@@ -1131,14 +1131,20 @@ body {
     font-size: var(--font-size-4xl);
     font-weight: 700;
     margin-bottom: var(--spacing-md);
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
 }
 
 .page-subtitle {
     font-size: var(--font-size-lg);
-    color: var(--text-secondary);
+    color: var(--text-secondary) !important;
     max-width: 700px;
     margin: 0 auto;
+}
+
+/* Ensure light theme - override any dark styles */
+body {
+    background: var(--bg-light) !important;
+    color: var(--text-primary) !important;
 }
 
 /* Finding Section Styles */
