@@ -125,7 +125,7 @@ Accelerate acquisition of the PF segment through focused product positioning and
 
 **Priority 2: Close PIX Adoption Gap**
 
-Capture growth opportunity: CloudWalk's 13% PIX adoption (Q1 sample) compared to 43% national average suggests potential for expansion. Strategic target: Grow to **20% PIX share** to capture incremental volume while preserving POS/TAP profitability. Bundle existing capabilities (PIX, instant settlement, anticipation, analytics) into a premium tier offering.
+Capture growth opportunity: CloudWalk's 13% PIX adoption (Q1 sample) compared to 43% national average suggests potential for expansion. Strategic target: Grow to **20% PIX share** to capture incremental volume while preserving POS/TAP profitability. Bundle existing capabilities (PIX, instant settlement, anticipation, analytics) as an add-on package.
 
 **Priority 3: Evolve Anticipation into Working Capital Platform**
 
@@ -389,7 +389,7 @@ While specific competitor PIX adoption rates are not publicly disclosed, nationa
 
 **THE SOLUTION:**
 
-Bundle existing CloudWalk capabilities (PIX, instant settlement via Nitro D0, flexible anticipation, and analytics) into a premium tier offering. This is a marketing and positioning strategy—CloudWalk already has these features, they just need to be packaged together and promoted as a premium option.
+Bundle existing CloudWalk capabilities (PIX, instant settlement via Nitro D0, flexible anticipation, and analytics) as an add-on package available to merchants in any price tier. This is a marketing and positioning strategy—CloudWalk already has these features, they just need to be packaged together and promoted.
 
 **What CloudWalk Already Has (Being Bundled):**
 - ✅ PIX integration (already operational - 13% of TPV)
@@ -400,22 +400,20 @@ Bundle existing CloudWalk capabilities (PIX, instant settlement via Nitro D0, fl
 
 **What's New (Minor Enhancements):**
 - Predictive cash flow forecasting (ML enhancement to existing analytics dashboard)
-- Premium tier bundling and positioning (marketing/packaging strategy)
+- Bundling and positioning as add-on package (marketing/packaging strategy)
 - One-click activation flow for bundled features (UX streamlining)
 
-**Why this approach works:** Competing on PIX rails themselves is not viable as they are free and standardized infrastructure operated by Brazil's Central Bank. CloudWalk already has the technical capabilities—the strategy is **repositioning and bundling existing features** into a premium offering that merchants pay for. This is primarily a marketing and positioning initiative, not a product development effort.
+**Why this approach works:** Competing on PIX rails themselves is not viable as they are free and standardized infrastructure operated by Brazil's Central Bank. CloudWalk already has the technical capabilities—the strategy is **repositioning and bundling existing features** as an add-on package that merchants can enable. This is primarily a marketing and positioning initiative, not a product development effort.
 
 **Pricing Strategy:**
-- **Standard Tier:** Traditional settlement (T+1 or T+30) - base pricing structure
-- **Instant Tier:** Everything real-time including PIX with automatic reconciliation - premium pricing reflecting instant money access
-- **Ultra Tier:** Instant settlement plus working capital line, priority support, and AI cash flow optimization - highest margin tier
+Bundle PIX + instant settlement + anticipation + analytics as an add-on package that merchants can enable within their existing price tier (Normal, Intermediary, Aggressive, or Domination). Premium features (predictive analytics, priority support) can be offered as tier upgrades or paid add-ons, allowing merchants to access bundled capabilities regardless of their current pricing tier.
 
 **THE IMPACT:**
 
 | Metric | Current | Target (90d) | Annual Impact |
 |--------|---------|--------------|---------------|
 | PIX share of TPV | 13% | 20% | +R$ 1.7B TPV (incremental, preserves POS/TAP share) |
-| Instant tier adoption | — | 35%+ | Higher retention |
+| Bundle adoption rate | — | 35%+ | Higher retention |
 | Churn reduction (Instant vs non-Instant) | — | -15% | Improved LTV |
 | Time-to-money | Varies | <5min | Operational efficiency |
 
@@ -423,33 +421,33 @@ Bundle existing CloudWalk capabilities (PIX, instant settlement via Nitro D0, fl
 
 | Timeline | Milestone | Deliverable | Success Metric |
 |----------|-----------|-------------|----------------|
-| 30 days | Research and bundling strategy | Competitive benchmark analysis, pricing model, feature bundling design | Premium tier structure confirmed |
+| 30 days | Research and bundling strategy | Competitive benchmark analysis, pricing model, feature bundling design | Bundling structure confirmed |
 | 60 days | Positioning and minor enhancements | Marketing materials, predictive analytics enhancement, bundle activation UX | Beta ready with 50 merchants |
-| 90 days | Launch | Marketing campaign, merchant education, 30-day trial program | 500+ merchants on Instant tier |
+| 90 days | Launch | Marketing campaign, merchant education, 30-day trial program | 500+ merchants using bundle |
 
 **RESOURCE REQUIREMENTS:**
 
 | Resource Category | Requirement | Rationale | Assumptions |
 |------------------|-------------|-----------|-------------|
 | **Personnel** | | | |
-| Product FTE | 1-2 (part-time) | Premium tier bundling design, pricing strategy, feature packaging | Bundling existing features requires minimal product design. Primarily positioning/marketing support. |
+| Product FTE | 1-2 (part-time) | Bundle design, pricing strategy, feature packaging | Bundling existing features requires minimal product design. Primarily positioning/marketing support. |
 | Engineering FTE | 1-2 (part-time) | Predictive analytics enhancement to existing dashboard, bundle activation UX streamlining | Minor enhancements to existing systems. Leverages existing infrastructure. |
 | Data Science/ML FTE | 1 (part-time) | Predictive cash flow forecasting (ML enhancement to existing analytics) | Can leverage existing AI infrastructure. Enhancement to current dashboard, not new product. |
-| Marketing FTE | 2-3 (full-time) | Campaign development, premium tier positioning, merchant education, trial program | Primary focus: Marketing and positioning existing capabilities as premium bundle. |
+| Marketing FTE | 2-3 (full-time) | Campaign development, bundle positioning, merchant education, trial program | Primary focus: Marketing and positioning existing capabilities as bundled package. |
 | **Budget** | | | |
 | Minor enhancements | R$ 100-200K | Predictive analytics enhancement, UX streamlining for bundle activation | Minimal development - enhancements to existing systems only. |
-| Marketing campaign | R$ 400-600K | Digital marketing, premium tier positioning, merchant education, trial program | Primary investment: Marketing and positioning existing capabilities. |
+| Marketing campaign | R$ 400-600K | Digital marketing, bundle positioning, merchant education, trial program | Primary investment: Marketing and positioning existing capabilities as bundled package. |
 | Competitive intelligence | R$ 50-100K | Market research, competitor pricing analysis, merchant interviews | External research costs for competitive benchmarking. |
 | **Total Estimated Investment** | **R$ 550K-900K** | **⚠️ PRELIMINARY ESTIMATE - Requires validation with CloudWalk finance team** | **30% enhancements, 70% marketing/positioning** |
 | **Infrastructure** | | | |
 | Existing systems | Leverage | STRATUS blockchain, PIX integration, Nitro D0 infrastructure, existing APIs | No new infrastructure required. Product bundling and dashboard features only. |
 | Analytics enhancement | Minor | Cash flow dashboard, predictive analytics infrastructure | Can leverage existing analytics with ML model enhancements. |
 | **External Dependencies** | | | |
-| Legal/Compliance | 2-3 weeks review | Anti-tying regulations, pricing transparency requirements, bundling compliance | Legal review for product bundling and premium tier pricing. Regulatory compliance assessment. |
+| Legal/Compliance | 2-3 weeks review | Anti-tying regulations, pricing transparency requirements, bundling compliance | Legal review for product bundling and add-on package pricing. Regulatory compliance assessment. |
 | Merchant beta testing | 50 merchants | Beta program for feedback and validation | Existing merchant base for beta testing. No external recruitment needed. |
 
 **Resource Availability Assumptions (REQUIRE VALIDATION):**
-- ⚠️ Marketing team has capacity for premium tier positioning campaign (2-3 FTE) **[NEEDS VALIDATION]**
+- ⚠️ Marketing team has capacity for bundle positioning campaign (2-3 FTE) **[NEEDS VALIDATION]**
 - ✅ Existing STRATUS, PIX, Nitro D0, and analytics infrastructure support bundling without infrastructure changes **[CONFIRMED - uses existing systems]**
 - ⚠️ Marketing budget available for merchant conversion campaigns (R$ 400-600K estimated) **[PRELIMINARY ESTIMATE - ACTUAL BUDGET MUST BE CONFIRMED]**
 - ⚠️ Minor engineering/ML resources available for predictive analytics enhancement (1-2 part-time FTE) **[NEEDS VALIDATION]**
@@ -467,7 +465,7 @@ Bundle existing CloudWalk capabilities (PIX, instant settlement via Nitro D0, fl
 
 | Compliance Area | Applicable Regulation | Requirements | Status | Timeline | Risk |
 |----------------|----------------------|--------------|--------|----------|------|
-| **Pricing Transparency** | Central Bank Resolution 4,753 (2020) | Clear disclosure of pricing tiers, fee structures, and terms for bundled services | Pricing transparency documentation required | Week 3-4: Pricing compliance review | Medium - Premium tier pricing must be clearly disclosed |
+| **Pricing Transparency** | Central Bank Resolution 4,753 (2020) | Clear disclosure of pricing tiers, fee structures, and terms for bundled services | Pricing transparency documentation required | Week 3-4: Pricing compliance review | Medium - Bundle pricing must be clearly disclosed |
 | **Anti-Tying Regulations** | Central Bank Resolution 4,753 (2020) | Prohibition of bundling unrelated financial services to force merchant adoption | Legal review of bundle structure (PIX + instant settlement + cash flow forecasting) | Week 3-4: Bundling compliance review | Medium - Bundle must be voluntary and services must be related |
 | **Service Level Agreements** | Consumer Protection Code, Commercial contracts | 99.95% uptime commitment creates legal liability if not met | Legal review of SLA commitments and liability caps | Week 4: SLA legal review | Medium - SLA commitments must be realistic and legally protected |
 | **Instant Settlement Disclosure** | Central Bank Circular 3,952 (2011) | Clear disclosure of instant settlement terms, fees, and conditions | Standard disclosure requirements apply | Week 3: Disclosure documentation | Low - Standard practice for CloudWalk |
@@ -819,7 +817,7 @@ Priority order balances market urgency, resource efficiency, and strategic align
 | Priority | Action | Strategic Alignment | KPIs | Timeline |
 |----------|--------|---------------------|------|----------|
 | 1 | Individual merchant segment and weekend capture | Gig economy growth, market penetration | Weekend share, activation speed, CAC payback | 30-60 days |
-| 2 | PIX bundling and positioning | Ecosystem expansion, premium tier positioning | PIX share, premium tier adoption, retention | 60-90 days (marketing/positioning) |
+| 2 | PIX bundling and positioning | Ecosystem expansion, bundle positioning | PIX share, bundle adoption, retention | 60-90 days (marketing/positioning) |
 | 3 | Working Capital Platform | Ecosystem expansion, revenue transformation | Loan volume, default rate, LTV by segment | 60-180 days |
 
 **Strategic Rationale:**
@@ -1450,7 +1448,7 @@ This register documents all key assumptions underlying the strategic findings an
 | **A7** | CloudWalk's SCFI license (obtained 2025) enables all proposed financial products in Finding 3 | Regulatory | Low | Critical - May require additional licenses or regulatory approvals | Legal review required. Verify SCFI license scope covers credit lines, inventory financing, and growth capital products. Confirm if additional Central Bank authorizations needed. | Requires legal validation |
 | **A8** | Competition intensity remains constant (no aggressive response to CloudWalk actions) | Competitive | Medium | Medium - Competitive reactions may erode market share gains | Monitor competitor responses to CloudWalk initiatives. Consider scenario planning where Stone/PagSeguro match pricing or features. Build competitive moat through technology differentiation. | Strategic planning assumption |
 | **A9** | CloudWalk organizational capacity can execute 3 parallel strategic initiatives (Priorities 1-3) simultaneously | Resource | Low | Critical - Competing priorities may conflict, resources may be insufficient | Confirm with executive team. Assess current bandwidth across product, engineering, marketing, and operations. Consider sequential execution if resources constrained. | Requires validation |
-| **A10** | Marginal cost structure allows for pricing flexibility in Instant tier (Finding 2) without margin compression | Cost | Medium | Medium - Margin pressure may limit pricing strategy | Analyze marginal costs of STRATUS blockchain instant settlement vs. traditional infrastructure. Review current margin structure and assess pricing elasticity. Validate that premium pricing is sustainable. | Requires financial analysis |
+| **A10** | Marginal cost structure allows for pricing flexibility in bundle add-on (Finding 2) without margin compression | Cost | Medium | Medium - Margin pressure may limit pricing strategy | Analyze marginal costs of STRATUS blockchain instant settlement vs. traditional infrastructure. Review current margin structure and assess pricing elasticity. Validate that bundle pricing is sustainable. | Requires financial analysis |
 | **A11** | CloudWalk has existing marketing creative assets or can develop within 30 days for Priority 1 | Technical | Medium | Medium - Timeline extends if assets must be created | Confirm with marketing team. Assess availability of existing PF segment creative. Validate 30-day timeline assumes asset reuse vs. new creation. | Requires validation |
 | **A12** | Gig economy partnership agreements (iFood, Uber) can be negotiated and executed within 60 days | External | Low | High - Partnership negotiations typically require 60-90 days | Start early with legal/commercial teams. Consider smaller initial partnerships for faster onboarding. Build flexibility for parallel direct acquisition channels if partnerships delayed. | Requires negotiation |
 | **A13** | Mobile-first onboarding flow development can reduce activation time from 48h to <12h with existing infrastructure | Technical | Medium | Medium - Technical constraints may limit optimization | Assess current onboarding flow bottlenecks. Validate that infrastructure supports faster processing. Consider incremental improvements if full 12h target not immediately feasible. | Requires technical assessment |
