@@ -99,7 +99,7 @@ Key performance metrics:
 | Growth Rate | +14.8% (Jan→Mar) | Steady upward trajectory |
 | Approval Rate | 85.8% | Solid baseline with optimization opportunity |
 | PF Segment Share | 29.5% → 31.9% | +2.4pp growth indicates market momentum |
-| PIX Share | 13% (flat) | Below national P2B average of 22% |
+| PIX Share | 13% (flat) | 30pp below national average (43% of all payments); target: 20% to preserve POS/TAP profitability |
 | Peak Hours | 10h-17h = 65% | Efficient capacity utilization |
 | Product Concentration | 87% in POS/TAP/PIX | Clear market focus |
 
@@ -125,7 +125,7 @@ Accelerate acquisition of the PF segment through focused product positioning and
 
 **Priority 2: Close PIX Adoption Gap**
 
-Address the 9 percentage point gap between CloudWalk's 13% PIX adoption and the national P2B average of 22%. Bundle PIX with instant settlement capabilities into a "CloudWalk Instant" suite that monetizes reliability and automation.
+Address the significant gap between CloudWalk's 13% PIX adoption and national average of 43% (30 percentage points below market leader). Strategic target: Grow to **20% PIX share** to capture incremental volume while preserving POS/TAP profitability. Bundle PIX with instant settlement capabilities into a "CloudWalk Instant" suite that monetizes reliability and automation.
 
 **Priority 3: Evolve Anticipation into Working Capital Platform**
 
@@ -143,7 +143,7 @@ This section provides direct answers to the six business questions posed in the 
 
 ![TPV by Product](outputs/visualizations/findings/tpv_by_product_bar.png)
 
-**Strategic Context:** Product concentration suggests a deliberate focus on winning products. However, PIX's flat 13% share represents 9 percentage points below the national P2B average of 22%, indicating a specific growth opportunity in instant payments.
+**Strategic Context:** Product concentration suggests a deliberate focus on winning products. However, PIX's flat 13% share represents **30 percentage points below national average** (PIX is 43% of all payments nationally), indicating significant growth opportunity. Strategic target of **20%** balances market opportunity with profitability considerations—growing PIX incrementally (13% → 20%) without cannibalizing POS/TAP products that may have higher margins.
 
 ### Q2: How do weekdays increase or decrease TPV?
 
@@ -363,7 +363,7 @@ The Action Plans prioritization table (30-60 days) reflects this range, acknowle
 
 **THE OPPORTUNITY:**
 
-CloudWalk's PIX adoption remains flat at 13% of total payment volume compared to a national consumer-to-business average of 22%. This 9 percentage point gap represents both a competitive vulnerability and a significant growth opportunity.
+CloudWalk's PIX adoption remains flat at **13% of total payment volume** while PIX represents **43% of all payments nationally** (Brazil's #1 payment method). This **30 percentage point gap** indicates severe underperformance, but strategic growth requires targeting **20% PIX share** to preserve POS and TAP product profitability while capturing incremental volume.
 
 **THE PROOF:**
 
@@ -377,13 +377,15 @@ CloudWalk's PIX adoption remains flat at 13% of total payment volume compared to
 - Eleven million businesses have registered for PIX transactions
 
 **CloudWalk's Position:**
-- CloudWalk's 13% share is 9 percentage points below national P2B average of 22%
+- CloudWalk's 13% share is **30 percentage points below national average** where PIX represents 43% of all payments
+- **Strategic target of 20%** balances growth opportunity with profitability preservation (POS/TAP may have higher margins)
 - Q1 data shows flat adoption across all three months with zero growth momentum
 - PIX product appears treated as operational capability rather than competitive differentiation
+- Growth strategy focuses on **incremental PIX volume** (13% → 20%) without cannibalizing existing POS/TAP share, ensuring net revenue growth rather than product mix shift
 
 **Competitive Intelligence:**
 
-While specific competitor PIX adoption rates are not publicly disclosed, national data suggests major payment processors including Stone, PagSeguro, and Mercado Pago likely achieve 20-30% PIX share based on P2B transaction patterns. CloudWalk's flat 13% share indicates competitive underperformance in Brazil's dominant payment category.
+While specific competitor PIX adoption rates are not publicly disclosed, national data suggests major payment processors including Stone, PagSeguro, and Mercado Pago likely achieve 20-30% PIX share. The national average of **43% PIX adoption demonstrates market acceptance**, but strategic growth requires balancing PIX expansion with product profitability. CloudWalk's flat 13% share indicates competitive underperformance, and a **20% target represents realistic competitive positioning** while preserving high-margin POS/TAP products.
 
 **THE SOLUTION:**
 
@@ -407,7 +409,7 @@ While specific competitor PIX adoption rates are not publicly disclosed, nationa
 
 | Metric | Current | Target (90d) | Annual Impact |
 |--------|---------|--------------|---------------|
-| PIX share of TPV | 13% | 20%+ | +R$ 1.7B TPV |
+| PIX share of TPV | 13% | 20% | +R$ 1.7B TPV (incremental, preserves POS/TAP share) |
 | Instant tier adoption | — | 35%+ | Higher retention |
 | Churn reduction (Instant vs non-Instant) | — | -15% | Improved LTV |
 | Time-to-money | Varies | <5min | Operational efficiency |
@@ -1216,7 +1218,7 @@ This analysis, while comprehensive and data-driven, contains inherent biases and
    - **Mitigation:** Patterns validated across all three months (January, February, March partial). Growth calculations consistent across monthly intervals. Sensitivity analysis shows findings robust to ±9 day variations
    
 4. **Anchoring Bias**
-   - **Risk:** Competitive benchmarks (22% PIX adoption, 4.5x revenue multipliers) may anchor expectations unrealistically
+   - **Risk:** Competitive benchmarks (43% national PIX adoption, 4.5x revenue multipliers) may anchor expectations unrealistically
    - **Evidence:** National PIX benchmarks and US fintech lending benchmarks may not apply directly to Brazilian context
    - **Mitigation:** Used multiple benchmark sources (Central Bank, industry reports, multiple peer companies). Provided sensitivity analysis with scenario ranges (conservative to optimistic). Documented market context differences (Brazilian vs US fintech markets). Break-even analysis shows viability at lower benchmarks
 
@@ -1250,7 +1252,7 @@ This analysis, while comprehensive and data-driven, contains inherent biases and
 
 5. **Industry Benchmark Applicability**
    - US-based fintech benchmarks (Kabbage, Square Capital) may not apply to Brazilian regulatory and market context
-   - National PIX averages (22% P2B) assume CloudWalk's merchant base mirrors national demographics
+   - National PIX adoption (43% of all payments) demonstrates market acceptance, but 20% strategic target balances growth with product profitability preservation
    - **Recommendation:** Conduct CloudWalk-specific market research. Validate benchmarks through Brazilian fintech industry analysis
 
 **Recommendations for Validation:**
@@ -1284,7 +1286,7 @@ These biases and limitations do not invalidate the strategic recommendations, bu
 
 ### Market Benchmarks and Sources
 
-**PIX National Statistics:** Brazilian Central Bank official publications, Matera.com P2B averages, americasmi.com transaction volume data.
+**PIX National Statistics:** Brazilian Central Bank (PIX represents 43% of all payments nationally), Matera.com business adoption statistics, americasmi.com transaction volume data.
 
 **Competitive Intelligence:** Mercado Pago, Stone, and PagSeguro positioning from public press releases and investor presentations.
 
@@ -1413,7 +1415,7 @@ Before implementation, CloudWalk should:
 ### Assumptions and Limitations
 
 - Q1 2025 data represents complete CloudWalk transaction volume
-- National PIX benchmarks from Central Bank reports assume 22% P2B average is representative
+- National PIX adoption benchmark (43% of all payments) demonstrates market acceptance but 20% target balances growth with product profitability (POS/TAP margins unknown)
 - Revenue impact estimates require validation through pilot programs
 - Competitor adoption rates estimated from national averages where not publicly disclosed
 - **All budget estimates are preliminary and require validation with CloudWalk finance/operations teams**
@@ -1434,7 +1436,7 @@ This register documents all key assumptions underlying the strategic findings an
 |----|------------|------|------------|-----------------|---------------------|--------|
 | **A1** | CloudWalk has marketing budget capacity for Priority 1 campaign (estimated R$ 2-3M) | Business | Medium | Critical - Initiative cannot launch | Confirm with CFO/finance team. Review annual marketing budget allocation and available discretionary spend. | Requires validation |
 | **A2** | CloudWalk has product development resources available in Q1-Q2 2025 for Priority 2 (60-day initiative) | Resource | Medium | Critical - Cannot meet 60-day timeline | Confirm with VP Product/Engineering. Review current sprint capacity and roadmap commitments. Assess if team can be partially allocated or if dedicated resources needed. | Requires validation |
-| **A3** | National PIX benchmarks (22% P2B average) apply to CloudWalk's merchant base composition | Market | Medium | High - May overstate opportunity | Cross-reference CloudWalk merchant segments (SME focus) with national P2B transaction patterns. Validate that CloudWalk's merchant base mirrors national business demographics. | Requires validation |
+| **A3** | Strategic PIX target of 20% (vs. 43% national average) preserves POS/TAP profitability while capturing incremental volume | Strategic | Medium | High - If POS/TAP have lower margins than PIX, opportunity may be understated; if higher margins, 20% target protects revenue | Validate product profitability by product line. Assess margin differences between POS, TAP, and PIX. Confirm that 13% → 20% growth can be incremental (not cannibalizing POS/TAP). Review product mix economics to ensure 20% target optimizes revenue, not just volume. | Requires validation |
 | **A4** | Revenue multiplier benchmarks (4.5x from Kabbage/Square Capital) apply to Brazilian market context | Benchmark | Low | High - Market differences may reduce multiplier | Research Brazilian fintech lending benchmarks. Consider regulatory differences, interest rate environment, and credit market maturity vs. US market. Sensitivity analysis shows break-even at lower multipliers. | Requires validation |
 | **A5** | CloudWalk has capital access or capital capacity for lending products (Priority 3, Phase 3) | Financial | Low | Critical - Working capital platform requires significant capital reserves | Confirm capital structure and access to credit facilities. Review FIDC history (R$ 10B+ raised indicates strong access). Assess capital adequacy for lending book growth. | Requires validation |
 | **A6** | Merchant demand patterns observed in Jan-Mar 2025 extend to remainder of 2025 | Temporal | Medium | Medium - Seasonal variations may affect demand | Analyze historical seasonal patterns if available. Acknowledge that Q1 patterns may not reflect full-year trends. Consider holiday seasons, economic cycles, and market dynamics. | Acknowledged limitation |
@@ -1445,7 +1447,7 @@ This register documents all key assumptions underlying the strategic findings an
 | **A11** | CloudWalk has existing marketing creative assets or can develop within 30 days for Priority 1 | Technical | Medium | Medium - Timeline extends if assets must be created | Confirm with marketing team. Assess availability of existing PF segment creative. Validate 30-day timeline assumes asset reuse vs. new creation. | Requires validation |
 | **A12** | Gig economy partnership agreements (iFood, Uber) can be negotiated and executed within 60 days | External | Low | High - Partnership negotiations typically require 60-90 days | Start early with legal/commercial teams. Consider smaller initial partnerships for faster onboarding. Build flexibility for parallel direct acquisition channels if partnerships delayed. | Requires negotiation |
 | **A13** | Mobile-first onboarding flow development can reduce activation time from 48h to <12h with existing infrastructure | Technical | Medium | Medium - Technical constraints may limit optimization | Assess current onboarding flow bottlenecks. Validate that infrastructure supports faster processing. Consider incremental improvements if full 12h target not immediately feasible. | Requires technical assessment |
-| **A14** | National PIX growth trends (60% YoY, 22% P2B average) will continue through 2025 | External | Medium | Medium - Market saturation or regulatory changes may slow growth | Monitor Central Bank PIX statistics monthly. Acknowledge market maturity risk. Even if growth slows, closing 13%→22% gap remains valid objective. | Market monitoring |
+| **A14** | National PIX adoption (43% of all payments, 60% YoY growth) demonstrates market acceptance, but 20% target preserves product mix profitability | Market | Medium | Medium - Market saturation or regulatory changes may slow growth, but 13%→20% target remains realistic regardless | Monitor Central Bank PIX statistics monthly. Acknowledge market maturity risk. The 20% target is strategic (profitability preservation) rather than market-driven, so remains valid even if national growth slows. Validate that incremental PIX growth doesn't cannibalize POS/TAP margins. | Market monitoring + profitability validation |
 | **A15** | Transaction history for 5M merchants provides sufficient data quality for AI credit scoring models | Data | High | Medium - Data quality or volume may require additional features | Validate data completeness and quality. Assess if transaction history alone sufficient or if additional data sources needed (business registration, financial statements). Industry benchmarks suggest transaction data alone may be sufficient. | Data validation recommended |
 
 ### Assumption Summary by Type
