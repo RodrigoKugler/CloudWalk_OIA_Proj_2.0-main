@@ -125,7 +125,7 @@ Accelerate acquisition of the PF segment through focused product positioning and
 
 **Priority 2: Close PIX Adoption Gap**
 
-Capture growth opportunity: CloudWalk's 13% PIX adoption (Q1 sample) compared to 43% national average suggests potential for expansion. Strategic target: Grow to **20% PIX share** to capture incremental volume while preserving POS/TAP profitability. **Reposition and bundle existing capabilities** (PIX, instant settlement, anticipation, analytics) into a "CloudWalk Instant" premium tier that monetizes reliability and automation.
+Capture growth opportunity: CloudWalk's 13% PIX adoption (Q1 sample) compared to 43% national average suggests potential for expansion. Strategic target: Grow to **20% PIX share** to capture incremental volume while preserving POS/TAP profitability. Bundle existing capabilities (PIX, instant settlement, anticipation, analytics) into a premium tier offering.
 
 **Priority 3: Evolve Anticipation into Working Capital Platform**
 
@@ -359,7 +359,7 @@ The Action Plans prioritization table (30-60 days) reflects this range, acknowle
 
 ---
 
-### Finding 2: CloudWalk Instant – Close PIX Adoption Gap
+### Finding 2: Close PIX Adoption Gap
 
 **THE OPPORTUNITY:**
 
@@ -389,7 +389,7 @@ While specific competitor PIX adoption rates are not publicly disclosed, nationa
 
 **THE SOLUTION:**
 
-**CloudWalk Instant Suite** is a bundling and positioning strategy that packages existing CloudWalk capabilities (PIX, instant settlement via Nitro D0, flexible anticipation, and analytics) into a premium tier offering. This approach monetizes reliability and automation rather than payment rails themselves.
+Bundle existing CloudWalk capabilities (PIX, instant settlement via Nitro D0, flexible anticipation, and analytics) into a premium tier offering. This is a marketing and positioning strategy—CloudWalk already has these features, they just need to be packaged together and promoted as a premium option.
 
 **What CloudWalk Already Has (Being Bundled):**
 - ✅ PIX integration (already operational - 13% of TPV)
@@ -819,7 +819,7 @@ Priority order balances market urgency, resource efficiency, and strategic align
 | Priority | Action | Strategic Alignment | KPIs | Timeline |
 |----------|--------|---------------------|------|----------|
 | 1 | Individual merchant segment and weekend capture | Gig economy growth, market penetration | Weekend share, activation speed, CAC payback | 30-60 days |
-| 2 | CloudWalk Instant PIX bundle (bundling/positioning) | Ecosystem expansion, premium tier positioning | PIX share, Instant adoption, retention by tier | 60-90 days (marketing/positioning) |
+| 2 | PIX bundling and positioning | Ecosystem expansion, premium tier positioning | PIX share, premium tier adoption, retention | 60-90 days (marketing/positioning) |
 | 3 | Working Capital Platform | Ecosystem expansion, revenue transformation | Loan volume, default rate, LTV by segment | 60-180 days |
 
 **Strategic Rationale:**
