@@ -9,43 +9,133 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Force light theme for this page */
-        body {
+        /* AGGRESSIVE LIGHT THEME OVERRIDE - FORCE EVERYTHING TO BE LIGHT */
+        html, body {
             background: #F8FAFC !important;
+            background-color: #F8FAFC !important;
             color: #0F172A !important;
         }
+        
+        body * {
+            color: #0F172A !important;
+        }
+        
         .page-header {
             background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(107, 70, 193, 0.05) 100%) !important;
+            background-color: #F8FAFC !important;
             color: #0F172A !important;
         }
+        
+        .page-header * {
+            color: #0F172A !important;
+        }
+        
         .page-header h1 {
             color: #0F172A !important;
         }
+        
         .page-subtitle {
             color: #475569 !important;
         }
+        
         .finding-section {
             background: white !important;
+            background-color: white !important;
         }
+        
+        .finding-section * {
+            color: #0F172A !important;
+        }
+        
         .finding-main {
             background: white !important;
+            background-color: white !important;
             color: #0F172A !important;
         }
-        .finding-section h2,
-        .finding-section h3,
-        .finding-section h4,
-        .finding-section p,
-        .finding-section li,
-        .finding-section span {
+        
+        .finding-main * {
             color: #0F172A !important;
         }
+        
+        .finding-block,
+        .finding-block *,
+        .finding-title-group,
+        .finding-title-group *,
+        h1, h2, h3, h4, h5, h6,
+        p, li, span, div, td, th {
+            color: #0F172A !important;
+        }
+        
         .finding-block-title {
             color: #0F172A !important;
         }
+        
         .finding-lead {
             color: #475569 !important;
         }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        .footer {
+            background: white !important;
+            background-color: white !important;
+            color: #0F172A !important;
+        }
+        
+        .footer * {
+            color: #475569 !important;
+        }
+        
+        .cta-section {
+            background: white !important;
+            background-color: white !important;
+        }
+        
+        .cta-section * {
+            color: #0F172A !important;
+        }
     </style>
+    <script>
+        // Force light theme immediately - runs before page loads
+        (function() {
+            document.documentElement.style.backgroundColor = '#F8FAFC';
+            document.body.style.backgroundColor = '#F8FAFC';
+            document.body.style.color = '#0F172A';
+            
+            // Apply styles to all elements
+            function forceLightTheme() {
+                const allElements = document.querySelectorAll('*');
+                allElements.forEach(el => {
+                    if (el.tagName === 'BODY' || el.tagName === 'HTML') {
+                        el.style.backgroundColor = '#F8FAFC';
+                        el.style.color = '#0F172A';
+                    } else if (el.classList.contains('page-header')) {
+                        el.style.background = 'linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(107, 70, 193, 0.05) 100%)';
+                        el.style.color = '#0F172A';
+                    } else if (el.classList.contains('finding-section') || el.classList.contains('finding-main')) {
+                        el.style.backgroundColor = 'white';
+                        el.style.color = '#0F172A';
+                    } else if (['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P', 'LI', 'SPAN', 'TD', 'TH'].includes(el.tagName)) {
+                        el.style.color = '#0F172A';
+                    }
+                });
+            }
+            
+            // Run immediately
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', forceLightTheme);
+            } else {
+                forceLightTheme();
+            }
+            
+            // Run again after a short delay to catch any late-loading elements
+            setTimeout(forceLightTheme, 100);
+            setTimeout(forceLightTheme, 500);
+        })();
+    </script>
 </head>
 <body>
     <!-- Navigation -->
