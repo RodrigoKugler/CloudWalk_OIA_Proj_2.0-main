@@ -9,24 +9,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* AGGRESSIVE LIGHT THEME OVERRIDE - FORCE EVERYTHING TO BE LIGHT */
-        html, body {
+        /* COMPREHENSIVE LIGHT THEME OVERRIDE - FORCE EVERYTHING TO BE LIGHT */
+        html {
+            background: #F8FAFC !important;
+            background-color: #F8FAFC !important;
+        }
+        
+        body {
             background: #F8FAFC !important;
             background-color: #F8FAFC !important;
             color: #0F172A !important;
         }
         
-        body * {
-            color: #0F172A !important;
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            border-bottom-color: #E2E8F0 !important;
         }
         
+        .nav-menu a {
+            color: #475569 !important;
+        }
+        
+        .nav-menu a.active {
+            color: #0066FF !important;
+        }
+        
+        .nav-menu a:hover {
+            color: #0066FF !important;
+        }
+        
+        /* Page Header */
         .page-header {
             background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(107, 70, 193, 0.05) 100%) !important;
             background-color: #F8FAFC !important;
-            color: #0F172A !important;
-        }
-        
-        .page-header * {
             color: #0F172A !important;
         }
         
@@ -38,13 +55,10 @@
             color: #475569 !important;
         }
         
+        /* Finding Sections */
         .finding-section {
             background: white !important;
             background-color: white !important;
-        }
-        
-        .finding-section * {
-            color: #0F172A !important;
         }
         
         .finding-main {
@@ -53,74 +67,291 @@
             color: #0F172A !important;
         }
         
-        .finding-main * {
-            color: #0F172A !important;
-        }
-        
-        .finding-block,
-        .finding-block *,
-        .finding-title-group,
-        .finding-title-group *,
-        h1, h2, h3, h4, h5, h6,
-        p, li, span, div, td, th {
+        .finding-block {
             color: #0F172A !important;
         }
         
         .finding-block-title {
-            color: #0F172A !important;
+            color: #0066FF !important;
+            border-bottom-color: #0066FF !important;
         }
         
         .finding-lead {
-            color: #475569 !important;
-        }
-        
-        .navbar {
-            background: rgba(255, 255, 255, 0.95) !important;
-            background-color: rgba(255, 255, 255, 0.95) !important;
-        }
-        
-        .footer {
-            background: white !important;
-            background-color: white !important;
             color: #0F172A !important;
         }
         
-        .footer * {
-            color: #475569 !important;
+        .finding-title-group h2 {
+            color: #0F172A !important;
         }
         
+        .finding-timeline-badge {
+            background: rgba(0, 102, 255, 0.1) !important;
+            color: #0066FF !important;
+        }
+        
+        /* All text elements */
+        .finding-section h1,
+        .finding-section h2,
+        .finding-section h3,
+        .finding-section h4,
+        .finding-section h5,
+        .finding-section h6,
+        .finding-section p,
+        .finding-section li,
+        .finding-section span,
+        .finding-section div,
+        .finding-section td,
+        .finding-section th,
+        .finding-section strong {
+            color: #0F172A !important;
+        }
+        
+        .finding-section .finding-lead {
+            color: #0F172A !important;
+        }
+        
+        /* Tables */
+        table {
+            background: white !important;
+        }
+        
+        thead {
+            background: #0066FF !important;
+            color: white !important;
+        }
+        
+        th {
+            color: white !important;
+        }
+        
+        td {
+            color: #475569 !important;
+            background: white !important;
+        }
+        
+        tbody tr {
+            background: white !important;
+        }
+        
+        tbody tr:hover {
+            background: #F8FAFC !important;
+        }
+        
+        /* Lists */
+        ul, ol {
+            color: #0F172A !important;
+        }
+        
+        li {
+            color: #0F172A !important;
+        }
+        
+        /* CTA Section */
         .cta-section {
             background: white !important;
             background-color: white !important;
+            border-top: 1px solid #E2E8F0 !important;
         }
         
-        .cta-section * {
+        .cta-section h2 {
             color: #0F172A !important;
+        }
+        
+        .cta-section p {
+            color: #475569 !important;
+        }
+        
+        .cta-buttons .btn-primary {
+            background: #0066FF !important;
+            color: white !important;
+        }
+        
+        .cta-buttons .btn-secondary {
+            background: #6B46C1 !important;
+            color: white !important;
+        }
+        
+        .cta-buttons .btn-outline {
+            background: transparent !important;
+            color: #0066FF !important;
+            border-color: #0066FF !important;
+        }
+        
+        /* Footer */
+        .footer {
+            background: white !important;
+            background-color: white !important;
+            border-top: 1px solid #E2E8F0 !important;
+        }
+        
+        .footer h4 {
+            color: #0F172A !important;
+        }
+        
+        .footer p {
+            color: #475569 !important;
+        }
+        
+        .footer a {
+            color: #475569 !important;
+        }
+        
+        .footer a:hover {
+            color: #0066FF !important;
+        }
+        
+        .footer-bottom {
+            border-top-color: #E2E8F0 !important;
+            color: #475569 !important;
+        }
+        
+        /* Comparison Grid */
+        .comparison-item {
+            background: white !important;
+            color: #0F172A !important;
+        }
+        
+        .comparison-item h4 {
+            color: #0F172A !important;
+        }
+        
+        .comparison-item ul {
+            color: #0F172A !important;
+        }
+        
+        .comparison-item.highlight {
+            background: rgba(0, 102, 255, 0.05) !important;
+        }
+        
+        /* ROI Scenarios */
+        .roi-scenario {
+            background: white !important;
+            color: #0F172A !important;
+        }
+        
+        .roi-scenario h4 {
+            color: #0F172A !important;
+        }
+        
+        .roi-scenario ul {
+            color: #0F172A !important;
+        }
+        
+        .roi-scenario.highlight {
+            background: rgba(0, 102, 255, 0.05) !important;
+        }
+        
+        /* Confidence Table */
+        .confidence-table table {
+            background: white !important;
+        }
+        
+        .confidence-table th {
+            background: #0066FF !important;
+            color: white !important;
+        }
+        
+        .confidence-table td {
+            color: #0F172A !important;
+            background: white !important;
+        }
+        
+        /* Solution List */
+        .solution-list h4 {
+            color: #0F172A !important;
+        }
+        
+        .solution-list p {
+            color: #0F172A !important;
+        }
+        
+        .solution-list li {
+            color: #0F172A !important;
+        }
+        
+        /* Data Table */
+        .data-table h4 {
+            color: #0F172A !important;
+        }
+        
+        .data-table p {
+            color: #0F172A !important;
+        }
+        
+        /* Visualization */
+        .visualization-item {
+            background: #F8FAFC !important;
+        }
+        
+        .viz-caption {
+            color: #475569 !important;
+        }
+        
+        /* Impact and Execution Tables */
+        .impact-table table,
+        .execution-table table {
+            background: white !important;
         }
     </style>
     <script>
         // Force light theme immediately - runs before page loads
         (function() {
-            document.documentElement.style.backgroundColor = '#F8FAFC';
-            document.body.style.backgroundColor = '#F8FAFC';
-            document.body.style.color = '#0F172A';
+            // Set base colors immediately
+            if (document.documentElement) {
+                document.documentElement.style.backgroundColor = '#F8FAFC';
+            }
+            if (document.body) {
+                document.body.style.backgroundColor = '#F8FAFC';
+                document.body.style.color = '#0F172A';
+            }
             
             // Apply styles to all elements
             function forceLightTheme() {
-                const allElements = document.querySelectorAll('*');
-                allElements.forEach(el => {
-                    if (el.tagName === 'BODY' || el.tagName === 'HTML') {
-                        el.style.backgroundColor = '#F8FAFC';
-                        el.style.color = '#0F172A';
-                    } else if (el.classList.contains('page-header')) {
-                        el.style.background = 'linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(107, 70, 193, 0.05) 100%)';
-                        el.style.color = '#0F172A';
-                    } else if (el.classList.contains('finding-section') || el.classList.contains('finding-main')) {
-                        el.style.backgroundColor = 'white';
-                        el.style.color = '#0F172A';
-                    } else if (['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'P', 'LI', 'SPAN', 'TD', 'TH'].includes(el.tagName)) {
-                        el.style.color = '#0F172A';
-                    }
+                // Force html and body
+                if (document.documentElement) {
+                    document.documentElement.style.backgroundColor = '#F8FAFC';
+                }
+                if (document.body) {
+                    document.body.style.backgroundColor = '#F8FAFC';
+                    document.body.style.color = '#0F172A';
+                }
+                
+                // Force footer to be light
+                const footer = document.querySelector('.footer');
+                if (footer) {
+                    footer.style.backgroundColor = 'white';
+                    footer.style.color = '#0F172A';
+                    const footerChildren = footer.querySelectorAll('*');
+                    footerChildren.forEach(child => {
+                        if (['H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(child.tagName)) {
+                            child.style.color = '#0F172A';
+                        } else if (['P', 'SPAN', 'LI'].includes(child.tagName)) {
+                            child.style.color = '#475569';
+                        }
+                        if (child.tagName === 'A') {
+                            child.style.color = '#475569';
+                        }
+                    });
+                }
+                
+                // Force CTA section to be light
+                const ctaSection = document.querySelector('.cta-section');
+                if (ctaSection) {
+                    ctaSection.style.backgroundColor = 'white';
+                    ctaSection.style.background = 'white';
+                }
+                
+                // Force page header
+                const pageHeader = document.querySelector('.page-header');
+                if (pageHeader) {
+                    pageHeader.style.backgroundColor = '#F8FAFC';
+                    pageHeader.style.background = 'linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(107, 70, 193, 0.05) 100%)';
+                }
+                
+                // Force finding sections
+                const findingSections = document.querySelectorAll('.finding-section, .finding-main');
+                findingSections.forEach(section => {
+                    section.style.backgroundColor = 'white';
                 });
             }
             
@@ -131,9 +362,12 @@
                 forceLightTheme();
             }
             
-            // Run again after a short delay to catch any late-loading elements
+            // Run multiple times to catch any late-loading elements
+            setTimeout(forceLightTheme, 50);
             setTimeout(forceLightTheme, 100);
+            setTimeout(forceLightTheme, 300);
             setTimeout(forceLightTheme, 500);
+            setTimeout(forceLightTheme, 1000);
         })();
     </script>
 </head>
