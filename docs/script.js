@@ -34,34 +34,61 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Highlight active nav item on scroll
-    const sections = document.querySelectorAll('section[id]');
+    // Highlight active nav item based on current page URL
     const navItems = document.querySelectorAll('.nav-menu a');
-
-    function highlightNav() {
-        let current = '';
-        const scrollY = window.pageYOffset;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                current = sectionId;
-            }
-        });
-
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === `#${current}` || 
-                (current === '' && item.getAttribute('href') === 'index.html')) {
-                item.classList.add('active');
-            }
-        });
+    
+    // Get current page - handle both local paths and GitHub Pages paths
+    let currentPage = window.location.pathname.split('/').pop();
+    if (!currentPage || currentPage === '' || currentPage === 'docs' || !currentPage.includes('.')) {
+        currentPage = 'index.html';
     }
+    
+    // Always set active state based on current page URL (this is the source of truth)
+    navItems.forEach(item => {
+        const href = item.getAttribute('href');
+        // Check if this link matches the current page
+        if (href === currentPage || 
+            (currentPage === 'index.html' && (href === 'index.html' || href === '' || href === '/'))) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
 
-    window.addEventListener('scroll', highlightNav);
+    // Only do scroll-based highlighting on index.html with sections
+    if (currentPage === 'index.html' || currentPage === '') {
+        const sections = document.querySelectorAll('section[id]');
+        
+        function highlightNav() {
+            let current = '';
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = sectionId;
+                }
+            });
+
+            navItems.forEach(item => {
+                const href = item.getAttribute('href');
+                // Only update if it's an anchor link, otherwise keep page-based active state
+                if (href.startsWith('#')) {
+                    item.classList.remove('active');
+                    if (href === `#${current}`) {
+                        item.classList.add('active');
+                    }
+                } else if (current === '' && href === 'index.html') {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNav);
+    }
 
     // Animate metric cards on scroll
     const observerOptions = {

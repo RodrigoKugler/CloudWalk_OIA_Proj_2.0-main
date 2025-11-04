@@ -2078,6 +2078,95 @@ body {
     }
 }
 
+/* Pricing Strategy Styles */
+.pricing-strategy-overview {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(107, 70, 193, 0.05) 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.pricing-lead {
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.pricing-components,
+.pricing-tiers,
+.pricing-premium,
+.pricing-rationale {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--bg-light);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.pricing-components h5,
+.pricing-tiers h5,
+.pricing-premium h5,
+.pricing-rationale h5 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    margin-top: 0;
+}
+
+.pricing-components p,
+.pricing-tiers p,
+.pricing-premium p,
+.pricing-rationale p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+}
+
+.pricing-components ul,
+.pricing-tiers ul,
+.pricing-premium ul,
+.pricing-rationale ul {
+    margin-top: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+}
+
+.pricing-components li,
+.pricing-tiers li,
+.pricing-premium li,
+.pricing-rationale li {
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.pricing-components li strong,
+.pricing-tiers li strong,
+.pricing-premium li strong,
+.pricing-rationale li strong {
+    color: var(--text-primary);
+}
+
+.pricing-note {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(0, 102, 255, 0.05);
+    border-radius: 8px;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.pricing-rationale {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(0, 102, 255, 0.05) 100%);
+    border-left: 4px solid var(--accent-teal);
+}
+
+.pricing-rationale h5 {
+    color: var(--accent-teal);
+}
+
 /* Comparison Grid Styles */
 .comparison-grid {
     display: grid;
