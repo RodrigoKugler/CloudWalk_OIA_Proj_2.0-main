@@ -148,39 +148,89 @@ function toggleSection(button) {
     }
 }
 
+// Close lightbox function
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
 // Image lightbox functionality
 function openLightbox(imageSrc, caption) {
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox';
-    lightbox.innerHTML = `
-        <div class="lightbox-content">
-            <span class="lightbox-close">&times;</span>
-            <img src="${imageSrc}" alt="${caption || 'Visualization'}">
-            ${caption ? `<p class="lightbox-caption">${caption}</p>` : ''}
-        </div>
-    `;
+    // Try to use existing lightbox element first
+    let lightbox = document.getElementById('lightbox');
     
-    document.body.appendChild(lightbox);
-    document.body.style.overflow = 'hidden';
-    
-    // Close on click
-    lightbox.addEventListener('click', function(e) {
-        if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
-            document.body.removeChild(lightbox);
-            document.body.style.overflow = '';
+    if (lightbox) {
+        // Use existing lightbox
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        
+        if (lightboxImg) {
+            lightboxImg.src = imageSrc;
+            lightboxImg.alt = caption || 'Visualization';
         }
-    });
-    
-    // Close on ESC key
-    document.addEventListener('keydown', function closeOnEsc(e) {
-        if (e.key === 'Escape') {
-            if (document.body.contains(lightbox)) {
+        
+        if (lightboxCaption && caption) {
+            lightboxCaption.textContent = caption;
+            lightboxCaption.style.display = 'block';
+        } else if (lightboxCaption) {
+            lightboxCaption.style.display = 'none';
+        }
+        
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Close on backdrop click
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Close on ESC key
+        const closeOnEsc = function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                document.removeEventListener('keydown', closeOnEsc);
+            }
+        };
+        document.addEventListener('keydown', closeOnEsc);
+    } else {
+        // Fallback: create dynamic lightbox (old method)
+        lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-content">
+                <span class="lightbox-close">&times;</span>
+                <img src="${imageSrc}" alt="${caption || 'Visualization'}">
+                ${caption ? `<p class="lightbox-caption">${caption}</p>` : ''}
+            </div>
+        `;
+        
+        document.body.appendChild(lightbox);
+        document.body.style.overflow = 'hidden';
+        
+        // Close on click
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
                 document.body.removeChild(lightbox);
                 document.body.style.overflow = '';
             }
-            document.removeEventListener('keydown', closeOnEsc);
-        }
-    });
+        });
+        
+        // Close on ESC key
+        document.addEventListener('keydown', function closeOnEsc(e) {
+            if (e.key === 'Escape') {
+                if (document.body.contains(lightbox)) {
+                    document.body.removeChild(lightbox);
+                    document.body.style.overflow = '';
+                }
+                document.removeEventListener('keydown', closeOnEsc);
+            }
+        });
+    }
 }
 
 // Add lightbox styles dynamically

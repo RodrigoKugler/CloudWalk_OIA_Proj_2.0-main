@@ -345,11 +345,13 @@
         </div>
     </footer>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
-        <div class="lightbox-caption" id="lightbox-caption"></div>
+    <!-- Lightbox Modal - Hidden by default -->
+    <div id="lightbox" style="display: none;">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" alt="Lightbox image">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
