@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operational Intelligence System | CloudWalk Q1 2025 Analysis</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* COMPREHENSIVE LIGHT THEME OVERRIDE - FORCE EVERYTHING TO BE LIGHT */
+        /* Prevent browser dark mode */
+        :root {
+            color-scheme: only light !important;
+            --bg-dark: #F8FAFC !important;
+            --bg-card: white !important;
+            --bg-light: #F8FAFC !important;
+            --text-primary: #0F172A !important;
+            --text-secondary: #475569 !important;
+            --text-light: #64748B !important;
+        }
+        
         html {
             background: #F8FAFC !important;
             background-color: #F8FAFC !important;
+            color-scheme: only light !important;
         }
         
         body {
@@ -291,6 +303,42 @@
         .impact-table table,
         .execution-table table {
             background: white !important;
+        }
+        
+        /* Force light theme on all possible elements - maximum specificity */
+        html body,
+        html body *,
+        html body *::before,
+        html body *::after {
+            color-scheme: light !important;
+        }
+        
+        /* Override any potential dark backgrounds */
+        section,
+        div,
+        article,
+        main,
+        header,
+        footer {
+            background-color: white !important;
+            background: white !important;
+        }
+        
+        /* Ensure container elements are light */
+        .container {
+            background: transparent !important;
+        }
+        
+        /* Force light on finding container specifically */
+        #operational-intelligence,
+        #operational-intelligence * {
+            background-color: white !important;
+            background: white !important;
+        }
+        
+        #operational-intelligence.finding-section {
+            background: white !important;
+            background-color: white !important;
         }
     </style>
     <script>
