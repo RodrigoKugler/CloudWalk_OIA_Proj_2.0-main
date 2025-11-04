@@ -34,12 +34,19 @@
         }
         
         /* Navigation */
-        .navbar {
+        nav.navbar {
             background: rgba(255, 255, 255, 0.95) !important;
             background-color: rgba(255, 255, 255, 0.95) !important;
             border-bottom-color: #E2E8F0 !important;
         }
         
+        .nav-brand,
+        .nav-brand * {
+            color: #0066FF !important;
+        }
+        
+        .nav-menu,
+        .nav-menu li,
         .nav-menu a {
             color: #475569 !important;
         }
@@ -49,6 +56,12 @@
         }
         
         .nav-menu a:hover {
+            color: #0066FF !important;
+        }
+        
+        /* Ensure navigation text is visible */
+        .brand-text,
+        .brand-icon {
             color: #0066FF !important;
         }
         
@@ -101,7 +114,7 @@
             color: #0066FF !important;
         }
         
-        /* All text elements */
+        /* All text elements - don't set color on divs */
         .finding-section h1,
         .finding-section h2,
         .finding-section h3,
@@ -111,10 +124,11 @@
         .finding-section p,
         .finding-section li,
         .finding-section span,
-        .finding-section div,
         .finding-section td,
         .finding-section th,
-        .finding-section strong {
+        .finding-section strong,
+        .finding-section em,
+        .finding-section b {
             color: #0F172A !important;
         }
         
@@ -305,40 +319,112 @@
             background: white !important;
         }
         
-        /* Force light theme on all possible elements - maximum specificity */
-        html body,
-        html body *,
-        html body *::before,
-        html body *::after {
+        /* Force light theme - be selective to avoid hiding content */
+        html body {
             color-scheme: light !important;
         }
         
-        /* Override any potential dark backgrounds */
-        section,
-        div,
-        article,
-        main,
-        header,
-        footer {
-            background-color: white !important;
+        /* Only override specific sections, not all divs */
+        section.finding-section {
             background: white !important;
+            background-color: white !important;
         }
         
-        /* Ensure container elements are light */
+        section.page-header {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(107, 70, 193, 0.05) 100%) !important;
+            background-color: #F8FAFC !important;
+        }
+        
+        section.cta-section {
+            background: white !important;
+            background-color: white !important;
+        }
+        
+        footer.footer {
+            background: white !important;
+            background-color: white !important;
+        }
+        
+        /* Ensure container elements don't hide content */
         .container {
             background: transparent !important;
         }
         
-        /* Force light on finding container specifically */
-        #operational-intelligence,
-        #operational-intelligence * {
-            background-color: white !important;
-            background: white !important;
-        }
-        
+        /* Force light on finding section specifically - but preserve text colors */
         #operational-intelligence.finding-section {
             background: white !important;
             background-color: white !important;
+        }
+        
+        /* Ensure all text elements are visible with proper colors - be specific */
+        body h1, body h2, body h3, body h4, body h5, body h6 {
+            color: #0F172A !important;
+        }
+        
+        body p, body li, body span, body td, body th {
+            color: #0F172A !important;
+        }
+        
+        /* Ensure strong and emphasis text is visible */
+        body strong, body em, body b {
+            color: #0F172A !important;
+        }
+        
+        /* Ensure links are visible */
+        .finding-section a,
+        .finding-main a {
+            color: #0066FF !important;
+        }
+        
+        .finding-section a:hover,
+        .finding-main a:hover {
+            color: #0052CC !important;
+        }
+        
+        /* Ensure all text inside finding-main is visible - be specific */
+        .finding-main h1,
+        .finding-main h2,
+        .finding-main h3,
+        .finding-main h4,
+        .finding-main h5,
+        .finding-main h6,
+        .finding-main p,
+        .finding-main li,
+        .finding-main span,
+        .finding-main td,
+        .finding-main th,
+        .finding-main strong,
+        .finding-main em,
+        .finding-main b,
+        .finding-main label {
+            color: #0F172A !important;
+        }
+        
+        .finding-main a {
+            color: #0066FF !important;
+        }
+        
+        /* Ensure visibility - don't force display on grid elements */
+        .finding-main,
+        .finding-block,
+        .finding-container,
+        .finding-title-group,
+        .solution-list,
+        .data-table {
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        
+        .comparison-grid,
+        .roi-scenarios {
+            visibility: visible !important;
+            opacity: 1 !important;
+            /* Don't override display - let them be grid */
+        }
+        
+        .finding-main > * {
+            visibility: visible !important;
+            opacity: 1 !important;
         }
     </style>
     <script>
